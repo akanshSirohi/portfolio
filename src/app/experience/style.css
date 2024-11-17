@@ -1,0 +1,26 @@
+.vertical-timeline-element-date {
+    color: #fff;
+}
+
+@media only screen and (min-width:1170px) {
+    .vertical-timeline--two-columns .vertical-timeline-element-content .vertical-timeline-element-date {
+        left: 82% !important;
+    }
+
+    .vertical-timeline--two-columns .vertical-timeline-element:first-child .vertical-timeline-element-content .vertical-timeline-element-date {
+        left: 84% !important;
+    }
+
+    .vertical-timeline--two-columns .vertical-timeline-element.vertical-timeline-element--right .vertical-timeline-element-content .vertical-timeline-element-date,
+	.vertical-timeline--two-columns .vertical-timeline-element:nth-child(even):not(.vertical-timeline-element--left) .vertical-timeline-element-content .vertical-timeline-element-date {
+		left: auto !important;
+	}
+}
+
+.vertical-timeline--two-columns .vertical-timeline-element-content {
+    padding: 0 !important;
+}
+
+.vertical-timeline--two-columns .vertical-timeline-element-content {
+    box-shadow: unset !important;
+}

@@ -11,7 +11,16 @@
   "dependencies": {
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106",
-    "next": "15.0.3"
+    "next": "15.0.3",
+    "@react-icons/all-files": "^4.1.0",
+    "@tailwindcss/typography": "^0.5.10",
+    "framer-motion": "^10.16.4",
+    "html-react-parser": "^5.1.18",
+    "lucide-react": "^0.288.0",
+    "react-icons": "^4.11.0",
+    "react-tilt": "^1.0.2",
+    "react-vertical-timeline-component": "^3.6.0",
+    "showdown": "^2.1.0"
   },
   "devDependencies": {
     "postcss": "^8",

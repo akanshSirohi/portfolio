@@ -1,0 +1,11 @@
+h1, h2, h3, h4 {
+    font-family: var(--font-calsans);
+}
+
+img {
+    margin: 0 !important;
+}
+
+article {
+    max-width: 80ch !important;
+}
