@@ -5,24 +5,54 @@ import parse from 'html-react-parser';
 import "./project.css";
 
 export async function generateMetadata({ params }) {
-	const {title, description} = await get_project_metadata(params.slug);
-	return {title,description}
+	return {
+		title: "Project",
+		description: "A project page",
+	}
   }
 
 export default async function PostPage({ params }) {
-	const slug = params.slug;
-    const data = await getProjectBySlug(slug);
-
-	const contacts = await getContactDetails();
-	const socials = contacts.data.attributes.contacts;
+	const socials = [
+              {
+                "icon": "FiGithub",
+                "id": 7,
+                "label": "Github",
+                "link": "https://github.com/akanshSirohi",
+                "project_header": true,
+                "username": "akanshSirohi"
+              },
+              {
+                "icon": "FiLinkedin",
+                "id": 6,
+                "label": "Linkedin",
+                "link": "https://www.linkedin.com/in/akansh-sirohi",
+                "project_header": true,
+                "username": "akansh-sirohi"
+              },
+              {
+                "icon": "FiTwitter",
+                "id": 5,
+                "label": "Twitter",
+                "link": "https://twitter.com/akansh__sirohi",
+                "project_header": true,
+                "username": "@akansh__sirohi"
+              }
+            ];
 
 	const converter = new showdown.Converter();
-    
-	if (data === null) {
-		notFound();
-	}
 
-    const project = data.data[0].attributes;
+    const project = {
+		"content": "This is a project",
+		"createdAt": "2023-10-29T18:04:46.060Z",
+		"description": "Our open-source, web-based app is the ultimate file-sharing solution. Enjoy private sharing, real-time logs, and customizable themes. It works on Windows, Mac, Linux, Android, and iPhone, offering lightning-fast, offline transfers with 13 interface themes. Experience seamless, secure file sharing with ease.",
+		"github_repo": "akanshSirohi/ShareX",
+		"live_url": "https://f-droid.org/en/packages/com.akansh.fileserversuit/",
+		"project_date": "2020-06-30",
+		"publishedAt": "2023-10-29T18:04:54.870Z",
+		"slug": "sharex",
+		"title": "ShareX",
+		"updatedAt": "2023-11-06T22:59:18.134Z"
+	};
 
 	return (
 	<div className="bg-zinc-50 min-h-screen">
@@ -34,4 +64,13 @@ export default async function PostPage({ params }) {
 		</article>
 	</div>
 	);
+}
+
+// add generateStaticParams function
+export async function generateStaticParams() {
+	return [
+		{
+			slug: "project-1"
+		}
+	];
 }

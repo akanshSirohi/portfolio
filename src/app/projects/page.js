@@ -12,13 +12,12 @@ export const metadata = {
 }
 
 export default async function Projects() {
-  const data = await getProjectsList();
-  const pinnedProjects = await getPinnedProjects();
-  const allProjects = data.data.map(item => item.attributes);
 
-  const featured = pinnedProjects.data.attributes.featured.data.attributes;
-  const top2 = pinnedProjects.data.attributes.top2.data.attributes;
-  const top3 = pinnedProjects.data.attributes.top3.data.attributes;
+  const data = await import(`./data/DB.json`);
+  const allProjects = data.projects.all_projects;
+  const featured = allProjects.find((project) => project.slug === data.projects.featured);
+  const top2 = allProjects.find((project) => project.slug === data.projects.top2);
+  const top3 = allProjects.find((project) => project.slug === data.projects.top3);
 
   const sorted = allProjects
     .filter(
