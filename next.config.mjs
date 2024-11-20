@@ -10,10 +10,7 @@ const nextConfig = {
     basePath: basePath,
     images: {
         unoptimized: true,
-    },
-    env: {
-        BASE_URL: `https://akanshsirohi.github.io/${repo}`,
-    },
+    }
 };
 
 export default nextConfig;
