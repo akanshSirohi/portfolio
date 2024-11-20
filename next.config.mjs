@@ -12,7 +12,7 @@ const nextConfig = {
         unoptimized: true,
     },
     env: {
-        BASE_URL: 'https://akanshsirohi.github.io',
+        BASE_URL: `https://akanshsirohi.github.io/${repo}`,
     },
 };
 
