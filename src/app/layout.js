@@ -8,8 +8,8 @@ export const metadata = {
     default: "Akansh Sirohi | Portfolio",
     template: "%s | Akansh Sirohi",
   },
-  description: "Hi there, I'm Akansh 👋 Welcome to my small world of code. I'm a Software Engineer and AI Enthusiast!",
-  metadataBase: new URL('https://akansh.vercel.app/'),
+  description: "Welcome to the den of a software engineer 🦸‍♂️! I make the magic happen behind the scenes—like a wizard 🧙‍♂️, but with code 💻.",
+  metadataBase: new URL('https://akanshsirohi.dev/'),
   robots: {
     index: true,
     follow: true,
