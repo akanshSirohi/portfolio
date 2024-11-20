@@ -4,32 +4,8 @@ import { Card } from "../components/card";
 import ReactIcon from "../components/reactIcon";
 
 export default async function Contact() {
-	const socials = [
-		{
-			"icon": "FiGithub",
-			"id": 7,
-			"label": "Github",
-			"link": "https://github.com/akanshSirohi",
-			"project_header": true,
-			"username": "akanshSirohi"
-		},
-		{
-			"icon": "FiLinkedin",
-			"id": 6,
-			"label": "Linkedin",
-			"link": "https://www.linkedin.com/in/akansh-sirohi",
-			"project_header": true,
-			"username": "akansh-sirohi"
-		},
-		{
-			"icon": "FiTwitter",
-			"id": 5,
-			"label": "Twitter",
-			"link": "https://twitter.com/akansh__sirohi",
-			"project_header": true,
-			"username": "@akansh__sirohi"
-		}
-	];
+	const data = await import(`../data/DB.json`);
+	const socials = data.contacts;
 
 	return (
 		<div className=" bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">

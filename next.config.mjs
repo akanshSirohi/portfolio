@@ -1,15 +1,16 @@
 /** @type {import('next').NextConfig} */
 
-// const repo = "portfolio-static";
-// const assetPrefix = `/${repo}/`;
-// const basePath = `/${repo}`;
-
 const nextConfig = {
     output: 'export',
-    // assetPrefix: assetPrefix,
-    // basePath: basePath,
     images: {
         unoptimized: true,
+    },
+    webpack: function (config) {
+        config.module.rules.push({
+            test: /\.md$/,
+            use: 'raw-loader',
+        })
+        return config
     }
 };
 

@@ -13,7 +13,7 @@ export const metadata = {
 
 export default async function Projects() {
 
-  const data = await import(`./data/DB.json`);
+  const data = await import(`../data/DB.json`);
   const allProjects = data.projects.all_projects;
   const featured = allProjects.find((project) => project.slug === data.projects.featured);
   const top2 = allProjects.find((project) => project.slug === data.projects.top2);

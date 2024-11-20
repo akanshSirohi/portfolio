@@ -3,7 +3,7 @@ import {
   motion,
   useMotionTemplate,
   useSpring,
-} from "framer-motion";
+} from "motion/react";
 import { React } from "react";
 import { Tilt } from 'react-tilt';
 
