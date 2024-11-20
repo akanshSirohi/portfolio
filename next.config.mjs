@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 
 const repo = "portfolio-static";
-assetPrefix = `/${repo}/`;
-basePath = `/${repo}`;
+const assetPrefix = `/${repo}/`;
+const basePath = `/${repo}`;
 
 const nextConfig = {
     output: 'export',
