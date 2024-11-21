@@ -3,8 +3,9 @@ import Link from 'next/link';
 
 const navigation = [
 	{ name: "Projects", href: "/projects" },
-	{ name: "Contact", href: "/contact" },
+	{ name: "Skills", href: "/skills" },
 	{ name: "Experience", href: "/experience" },
+	{ name: "Contact", href: "/contact" },
 ];
 
 export default async function Home() {

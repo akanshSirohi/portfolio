@@ -1,9 +1,6 @@
 "use client";
-import { Github, Linkedin, Twitter } from "lucide-react";
-import Link from "next/link";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
-import Particles from "../components/particles";
 import ReactIcon from "../components/reactIcon";
 import './style.css';
 
@@ -27,121 +24,50 @@ export default function Experience() {
                 <div className="w-full h-px bg-zinc-800" />
                 {/* component */}
                 <div className="flex flex-col justify-center">
-                    <Particles
-                        className="absolute inset-0 -z-10 animate-fade-in"
-                        quantity={100}
-                    />
                     <div className="w-full px-2 py-3 sm:px-0">
                         <div className="relative text-center text-sm font-semibold text-gray-700 antialiased">
                             <VerticalTimeline animate={false}>
                                 <VerticalTimelineElement
                                     className="vertical-timeline-element--work"
+                                    date="2023 - Present"
                                     contentStyle={{ background: 'rgba(0,0,0,0)', color: '#fff' }}
-                                    contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
-                                    date="2011 - present"                                    
-                                    iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
+                                    iconStyle={{ background: '', color: '#fff', backgroundImage: 'linear-gradient(to top left, var(--tw-gradient-stops))' }}
                                     icon={<ReactIcon icon="FaBriefcase" size={18} color="#fff" />}
                                 >
                                     <Card className="p-6">
-                                        <h3 className="vertical-timeline-element-title">Creative Director</h3>
-                                        <h4 className="vertical-timeline-element-subtitle">Miami, FL</h4>
-                                        <p>
-                                        Creative Direction, User Experience, Visual Design, Project Management, Team Leading
-                                        </p>
-                                    </Card>
-                                </VerticalTimelineElement>
-                                <VerticalTimelineElement
-                                    className="vertical-timeline-element--work"
-                                    date="2010 - 2011"
-                                    contentStyle={{ background: 'rgba(0,0,0,0)', color: '#fff' }}
-                                    iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-                                    icon={<ReactIcon icon="FaBriefcase" size={18} color="#fff" />}
-                                >
-                                    <Card className="p-6">
-                                        <h3 className="vertical-timeline-element-title">Art Director</h3>
-                                        <h4 className="vertical-timeline-element-subtitle">San Francisco, CA</h4>
-                                        <p>
-                                        Creative Direction, User Experience, Visual Design, SEO, Online Marketing
-                                        </p>
-                                    </Card>
-                                </VerticalTimelineElement>
-                                <VerticalTimelineElement
-                                    className="vertical-timeline-element--work"
-                                    date="2008 - 2010"
-                                    contentStyle={{ background: 'rgba(0,0,0,0)', color: '#fff' }}
-                                    iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-                                    icon={<ReactIcon icon="FaBriefcase" size={18} color="#fff" />}
-                                >
-                                    <Card className="p-6">
-                                        <h3 className="vertical-timeline-element-title">Web Designer</h3>
-                                        <h4 className="vertical-timeline-element-subtitle">Los Angeles, CA</h4>
-                                        <p>
-                                        User Experience, Visual Design
-                                        </p>
-                                    </Card>
-                                </VerticalTimelineElement>
-                                <VerticalTimelineElement
-                                    className="vertical-timeline-element--work"
-                                    date="2006 - 2008"
-                                    contentStyle={{ background: 'rgba(0,0,0,0)', color: '#fff' }}
-                                    iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-                                    icon={<ReactIcon icon="FaBriefcase" size={18} color="#fff" />}
-                                >
-                                    <Card className="p-6">
-                                        <h3 className="vertical-timeline-element-title">Web Designer</h3>
-                                        <h4 className="vertical-timeline-element-subtitle">San Francisco, CA</h4>
-                                        <p>
-                                        User Experience, Visual Design
-                                        </p>
+                                        <h3 className="vertical-timeline-element-title">Software Developer</h3>
+                                        <h4 className="vertical-timeline-element-subtitle">Backend</h4>
+                                        <p>Keyideas Infotech, Gurgaon</p>
                                     </Card>
                                 </VerticalTimelineElement>
                                 <VerticalTimelineElement
                                     className="vertical-timeline-element--education"
-                                    date="April 2013"
+                                    date="2021 - 2023"
                                     contentStyle={{ background: 'rgba(0,0,0,0)', color: '#fff' }}
-                                    iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
+                                    iconStyle={{ color: '#fff', backgroundImage: 'linear-gradient(to top left, var(--tw-gradient-stops))' }}
                                     icon={<ReactIcon icon="FaGraduationCap" size={18} color="#fff" />}
                                 >
                                     <Card className="p-6">
-                                        <h3 className="vertical-timeline-element-title">Content Marketing for Web, Mobile and Social Media</h3>
-                                        <h4 className="vertical-timeline-element-subtitle">Online Course</h4>
-                                        <p>
-                                        Strategy, Social Media
-                                        </p>
+                                        <h3 className="vertical-timeline-element-title">Master of Computer Applications</h3>
+                                        <h4 className="vertical-timeline-element-subtitle">Master Degree</h4>
+                                        <p>Quantum University, Roorkee</p>
                                     </Card>
                                 </VerticalTimelineElement>
                                 <VerticalTimelineElement
                                     className="vertical-timeline-element--education"
-                                    date="November 2012"
+                                    date="2018 - 2021"
                                     contentStyle={{ background: 'rgba(0,0,0,0)', color: '#fff' }}
-                                    iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
+                                    iconStyle={{ color: '#fff', backgroundImage: 'linear-gradient(to top left, var(--tw-gradient-stops))' }}
                                     icon={<ReactIcon icon="FaGraduationCap" size={18} color="#fff" />}
                                 >
                                     <Card className="p-6">
-                                        <h3 className="vertical-timeline-element-title">Agile Development Scrum Master</h3>
-                                        <h4 className="vertical-timeline-element-subtitle">Certification</h4>
-                                        <p>
-                                        Creative Direction, User Experience, Visual Design
-                                        </p>
-                                    </Card>
-                                </VerticalTimelineElement>
-                                <VerticalTimelineElement
-                                    className="vertical-timeline-element--education"
-                                    date="2002 - 2006"
-                                    contentStyle={{ background: 'rgba(0,0,0,0)', color: '#fff' }}
-                                    iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
-                                    icon={<ReactIcon icon="FaGraduationCap" size={18} color="#fff" />}
-                                >
-                                    <Card className="p-6">
-                                        <h3 className="vertical-timeline-element-title">Bachelor of Science in Interactive Digital Media Visual Imaging</h3>
+                                        <h3 className="vertical-timeline-element-title">Bachelor of Computer Applications</h3>
                                         <h4 className="vertical-timeline-element-subtitle">Bachelor Degree</h4>
-                                        <p>
-                                        Creative Direction, Visual Design
-                                        </p>
+                                        <p>Quantum University, Roorkee</p>
                                     </Card>
                                 </VerticalTimelineElement>
                                 <VerticalTimelineElement
-                                    iconStyle={{ background: 'rgb(16, 204, 82)', color: '#fff' }}
+                                    iconStyle={{ color: '#fff', backgroundImage: 'linear-gradient(to top left, var(--tw-gradient-stops))' }}
                                     icon={<ReactIcon icon="FaRegStar" size={18} color="#fff" />}
                                 />
                             </VerticalTimeline>
