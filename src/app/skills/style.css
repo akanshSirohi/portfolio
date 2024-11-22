@@ -15,14 +15,9 @@ body {
 }
 
 svg {
-    /* width: 100px;
-    height: 100%; */
-    /* object-fit: cover; */
     -webkit-box-reflect: 1px linear-gradient(transparent, transparent, #0004);
     transform-origin: center;
-    transform: perspective(800px) rotateY(10deg);
     transition: 0.5s;
-    /* cursor: grabbing; */
 }
 
 .skills-container:hover svg {
@@ -30,6 +25,5 @@ svg {
 }
 
 .skills-container svg:hover {
-    transform: perspective(800px) rotateY(20deg);
     opacity: 1;
 }

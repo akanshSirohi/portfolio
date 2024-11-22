@@ -4,55 +4,9 @@ import './style.css';
 import Image from "next/image";
 import ReactIcon from "../components/reactIcon";
 
-const skills = [
-    {
-        icon: "IoLogoJavascript",
-        skill: "JavaScript",
-    },
-    {
-        icon: "FaReact",
-        skill: "React",
-    },
-    {
-        icon: "RiNextjsFill",
-        skill: "NextJs",
-    },
-    {
-        icon: "FaJava",
-        skill: "Java",
-    },
-    {
-        icon: "DiNodejs",
-        skill: "Node.js",
-    },
-    {
-        icon: "FaPython",
-        skill: "Python",
-    },
-    {
-        icon: "DiDjango",
-        skill: "Django",
-    },
-    {
-        icon: "SiMongodb",
-        skill: "MongoDB",
-    },
-    {
-        icon: "SiMysql",
-        skill: "MySQL",
-    },
-    {
-        icon: "GrGraphQl",
-        skill: "GraphQL",
-    },
-    {
-        icon: "SiKubernetes",
-        skill: "Kubernetes",
-    },
-];
-
 export default async function Skills() {
-    // const data = await import(`../data/DB.json`);
+    const data = await import(`../data/DB.json`);
+    const technologies = data.skills.technologies;
 
     return (
         <div className="bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0 h-dvh">
@@ -69,15 +23,8 @@ export default async function Skills() {
 
                 <div className="w-full h-px bg-zinc-800" />
                 <div className="skills-container">
-                    {skills.map((item, index) => (
+                    {technologies.map((item, index) => (
                         <div key={index} >
-                            {/* <Image
-                                src={item.icon}
-                                alt={item.skill}
-                                className="card"
-                                width={100}
-                                height={100}
-                            /> */}
                             <ReactIcon icon={item.icon} size={100} color="#fff" />
                         </div>
                     ))}

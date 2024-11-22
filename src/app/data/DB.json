@@ -51,5 +51,53 @@
 			"project_header": true,
 			"username": "@akansh__sirohi"
 		}
-    ]
+    ],
+    "skills" : {
+        "technologies": [
+            {
+                "icon": "IoLogoJavascript",
+                "skill": "JavaScript"
+            },
+            {
+                "icon": "FaReact",
+                "skill": "React"
+            },
+            {
+                "icon": "RiNextjsFill",
+                "skill": "NextJs"
+            },
+            {
+                "icon": "FaJava",
+                "skill": "Java"
+            },
+            {
+                "icon": "DiNodejs",
+                "skill": "Node.js"
+            },
+            {
+                "icon": "FaPython",
+                "skill": "Python"
+            },
+            {
+                "icon": "DiDjango",
+                "skill": "Django"
+            },
+            {
+                "icon": "SiMongodb",
+                "skill": "MongoDB"
+            },
+            {
+                "icon": "SiMysql",
+                "skill": "MySQL"
+            },
+            {
+                "icon": "GrGraphQl",
+                "skill": "GraphQL"
+            },
+            {
+                "icon": "SiKubernetes",
+                "skill": "Kubernetes"
+            }
+        ]
+    }
 }
