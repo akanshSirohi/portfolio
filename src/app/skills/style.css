@@ -7,29 +7,29 @@ body {
     place-items: center;
 }
 
-.container {
+.skills-container {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 20px;
 }
 
-img {
-    width: 100px;
-    height: 100%;
-    object-fit: cover;
+svg {
+    /* width: 100px;
+    height: 100%; */
+    /* object-fit: cover; */
     -webkit-box-reflect: 1px linear-gradient(transparent, transparent, #0004);
     transform-origin: center;
     transform: perspective(800px) rotateY(10deg);
     transition: 0.5s;
-    cursor: grabbing;
+    /* cursor: grabbing; */
 }
 
-.container:hover img {
+.skills-container:hover svg {
     opacity: 0.2;
 }
 
-.container img:hover {
+.skills-container svg:hover {
     transform: perspective(800px) rotateY(20deg);
     opacity: 1;
 }

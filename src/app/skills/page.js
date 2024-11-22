@@ -2,50 +2,51 @@ import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 import './style.css';
 import Image from "next/image";
+import ReactIcon from "../components/reactIcon";
 
 const skills = [
     {
-        imgSrc: "https://cdn-icons-png.flaticon.com/512/5968/5968381.png",
-        skill: "TypeScript",
+        icon: "IoLogoJavascript",
+        skill: "JavaScript",
     },
     {
-        imgSrc: "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
+        icon: "FaReact",
         skill: "React",
     },
     {
-        imgSrc: "https://angular.io/assets/images/logos/angular/angular.svg",
-        skill: "Angular",
+        icon: "RiNextjsFill",
+        skill: "NextJs",
     },
     {
-        imgSrc: "https://cdn-icons-png.flaticon.com/512/226/226777.png",
+        icon: "FaJava",
         skill: "Java",
     },
     {
-        imgSrc: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg",
+        icon: "DiNodejs",
         skill: "Node.js",
     },
     {
-        imgSrc: "https://cdn.iconscout.com/icon/free/png-256/free-python-logo-icon-download-in-svg-png-gif-file-formats--technology-social-media-vol-5-pack-logos-icons-2945099.png?f=webp",
+        icon: "FaPython",
         skill: "Python",
     },
     {
-        imgSrc: "https://cdn.iconscout.com/icon/free/png-256/free-django-logo-icon-download-in-svg-png-gif-file-formats--technology-social-media-company-vol-2-pack-logos-icons-2970205.png?f=webp&w=256",
+        icon: "DiDjango",
         skill: "Django",
     },
     {
-        imgSrc: "https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg",
-        skill: "PostgreSQL",
+        icon: "SiMongodb",
+        skill: "MongoDB",
     },
     {
-        imgSrc: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrLIsoAHea-BOhRzeFAqp8P9OChYR2Fch6mQ&s",
+        icon: "SiMysql",
         skill: "MySQL",
     },
     {
-        imgSrc: "https://banner2.cleanpng.com/20180415/ptq/avfqdec1g.webp",
+        icon: "GrGraphQl",
         skill: "GraphQL",
     },
     {
-        imgSrc: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLjjCqpT9yFoRs4odDSt__6-0MDmq7q-VvmA&s",
+        icon: "SiKubernetes",
         skill: "Kubernetes",
     },
 ];
@@ -67,16 +68,17 @@ export default async function Skills() {
                 </div>
 
                 <div className="w-full h-px bg-zinc-800" />
-                <div className="container">
+                <div className="skills-container">
                     {skills.map((item, index) => (
                         <div key={index} >
-                            <Image
-                                src={item.imgSrc}
+                            {/* <Image
+                                src={item.icon}
                                 alt={item.skill}
                                 className="card"
                                 width={100}
                                 height={100}
-                            />
+                            /> */}
+                            <ReactIcon icon={item.icon} size={100} color="#fff" />
                         </div>
                     ))}
                 </div>
