@@ -1,8 +1,58 @@
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 import './style.css';
+import Image from "next/image";
 
-export default function Skills() {
+const skills = [
+    {
+        imgSrc: "https://cdn-icons-png.flaticon.com/512/5968/5968381.png",
+        skill: "TypeScript",
+    },
+    {
+        imgSrc: "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
+        skill: "React",
+    },
+    {
+        imgSrc: "https://angular.io/assets/images/logos/angular/angular.svg",
+        skill: "Angular",
+    },
+    {
+        imgSrc: "https://cdn-icons-png.flaticon.com/512/226/226777.png",
+        skill: "Java",
+    },
+    {
+        imgSrc: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg",
+        skill: "Node.js",
+    },
+    {
+        imgSrc: "https://cdn.iconscout.com/icon/free/png-256/free-python-logo-icon-download-in-svg-png-gif-file-formats--technology-social-media-vol-5-pack-logos-icons-2945099.png?f=webp",
+        skill: "Python",
+    },
+    {
+        imgSrc: "https://cdn.iconscout.com/icon/free/png-256/free-django-logo-icon-download-in-svg-png-gif-file-formats--technology-social-media-company-vol-2-pack-logos-icons-2970205.png?f=webp&w=256",
+        skill: "Django",
+    },
+    {
+        imgSrc: "https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg",
+        skill: "PostgreSQL",
+    },
+    {
+        imgSrc: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrLIsoAHea-BOhRzeFAqp8P9OChYR2Fch6mQ&s",
+        skill: "MySQL",
+    },
+    {
+        imgSrc: "https://banner2.cleanpng.com/20180415/ptq/avfqdec1g.webp",
+        skill: "GraphQL",
+    },
+    {
+        imgSrc: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLjjCqpT9yFoRs4odDSt__6-0MDmq7q-VvmA&s",
+        skill: "Kubernetes",
+    },
+];
+
+export default async function Skills() {
+    // const data = await import(`../data/DB.json`);
+
     return (
         <div className="bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0 h-dvh">
             <Navigation />
@@ -15,15 +65,20 @@ export default function Skills() {
                         Unveiling My Arsenal: The Skills and Tools That Empower My Craft
                     </p>
                 </div>
+
                 <div className="w-full h-px bg-zinc-800" />
-                <div className="flex flex-col justify-center">
-                    <div className="w-full px-2 py-3 sm:px-0">
-                        <div className="relative text-sm font-semibold text-white antialiased">
-                            <h2 className="font-bold tracking-tight text-zinc-100 sm:text-4xl">
-                                Languages
-                            </h2>
+                <div className="container">
+                    {skills.map((item, index) => (
+                        <div key={index} >
+                            <Image
+                                src={item.imgSrc}
+                                alt={item.skill}
+                                className="card"
+                                width={100}
+                                height={100}
+                            />
                         </div>
-                    </div>
+                    ))}
                 </div>
             </div>
         </div>
