@@ -6,7 +6,9 @@ import ReactIcon from "../components/reactIcon";
 
 export default async function Skills() {
     const data = await import(`../data/DB.json`);
-    const technologies = data.skills.technologies;
+    const languages = data.skills.languages;
+    const tools = data.skills.tools;
+    const technologies = data.skills.tecnologies;
 
     return (
         <div className="bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0 h-dvh">
@@ -20,8 +22,32 @@ export default async function Skills() {
                         Unveiling My Arsenal: The Skills and Tools That Empower My Craft
                     </p>
                 </div>
-
                 <div className="w-full h-px bg-zinc-800" />
+                <h3 className="text-2xl font-bold tracking-tight text-zinc-100 sm:text-3xl">
+                    Languages
+                </h3>
+                <div className="skills-container">
+                    {languages.map((item, index) => (
+                        <div key={index} >
+                            <ReactIcon icon={item.icon} size={100} color="#fff" />
+                        </div>
+                    ))}
+                </div>
+
+                <h3 className="text-2xl font-bold tracking-tight text-zinc-100 sm:text-3xl">
+                    Tools
+                </h3>
+                <div className="skills-container">
+                    {tools.map((item, index) => (
+                        <div key={index} >
+                            <ReactIcon icon={item.icon} size={100} color="#fff" />
+                        </div>
+                    ))}
+                </div>
+
+                <h3 className="text-2xl font-bold tracking-tight text-zinc-100 sm:text-3xl">
+                    Technologies/Frameworks
+                </h3>
                 <div className="skills-container">
                     {technologies.map((item, index) => (
                         <div key={index} >

@@ -53,7 +53,11 @@
 		}
     ],
     "skills" : {
-        "technologies": [
+        "languages": [
+            {
+                "icon": "BiLogoPhp",
+                "skill": "PHP"
+            },
             {
                 "icon": "IoLogoJavascript",
                 "skill": "JavaScript"
@@ -63,40 +67,116 @@
                 "skill": "React"
             },
             {
-                "icon": "RiNextjsFill",
-                "skill": "NextJs"
+                "icon": "DiNodejs",
+                "skill": "Node.js"
             },
             {
                 "icon": "FaJava",
                 "skill": "Java"
             },
             {
-                "icon": "DiNodejs",
-                "skill": "Node.js"
+                "icon": "SiMysql",
+                "skill": "MySQL"
             },
             {
                 "icon": "FaPython",
                 "skill": "Python"
             },
             {
-                "icon": "DiDjango",
-                "skill": "Django"
+                "icon": "MdOutlineAndroid",
+                "skill": "Android"
+            }
+        ],
+        "tools": [
+            {
+                "icon": "FaLinux",
+                "skill": "Linux"
             },
             {
-                "icon": "SiMongodb",
-                "skill": "MongoDB"
+                "icon": "VscVscode",
+                "skill": "VS Code"
             },
             {
-                "icon": "SiMysql",
-                "skill": "MySQL"
+                "icon": "SiIntellijidea",
+                "skill": "IntelliJ IDEA"
+            },
+            {
+                "icon": "SiAndroidstudio",
+                "skill": "Android Studio"
+            },
+            {
+                "icon": "SiPostman",
+                "skill": "Postman"
+            },
+            {
+                "icon": "SiInsomnia",
+                "skill": "Insomnia"
+            },
+            {
+                "icon": "FaGitAlt",
+                "skill": "Git"
+            },
+            {
+                "icon": "FaGithub",
+                "skill": "GitHub"
+            },
+            {
+                "icon": "SiHeroku",
+                "skill": "Heroku"
+            },
+            {
+                "icon": "SiNetlify",
+                "skill": "Netlify"
+            },
+            {
+                "icon": "IoLogoFirebase",
+                "skill": "Firebase"
+            },
+            {
+                "icon": "FaDocker",
+                "skill": "Docker"
+            }
+        ],
+        "tecnologies": [
+            {
+                "icon": "RiNextjsFill",
+                "skill": "NextJs"
             },
             {
                 "icon": "GrGraphQl",
                 "skill": "GraphQL"
             },
             {
-                "icon": "SiKubernetes",
-                "skill": "Kubernetes"
+                "icon": "FaWordpress",
+                "skill": "WordPress"
+            },
+            {
+                "icon": "DiCodeigniter",
+                "skill": "CodeIgniter"
+            },
+            {
+                "icon": "IoLogoElectron",
+                "skill": "ElectronJS"
+            },
+            {
+                "icon": "SiMongodb",
+                "skill": "MongoDB"
+            },
+            {
+                "icon": "SiPrisma",
+                "skill": "Prisma"
+            },
+            {
+                "icon": "SiPayloadcms",
+                "skill": "Payload CMS"
+            },
+            {
+                "icon": "SiStrapi",
+                "skill": "Strapi"
+            },
+            {
+                "icon": "SiSocketdotio",
+                "skill": "Socket.io"
             }
         ]
     }
