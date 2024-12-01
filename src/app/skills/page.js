@@ -26,34 +26,40 @@ export default async function Skills() {
                 <h3 className="text-2xl font-bold tracking-tight text-zinc-100 sm:text-3xl">
                     Languages
                 </h3>
-                <div className="skills-container">
-                    {languages.map((item, index) => (
-                        <div key={index} >
-                            <ReactIcon icon={item.icon} size={100} color="#fff" />
-                        </div>
-                    ))}
+                <div className="skills-container-wrapper">
+                    <div className="skills-container">
+                        {languages.map((item, index) => (
+                            <div key={index} >
+                                <ReactIcon icon={item.icon} size={100} color="#fff" />
+                            </div>
+                        ))}
+                    </div>
                 </div>
 
                 <h3 className="text-2xl font-bold tracking-tight text-zinc-100 sm:text-3xl">
                     Tools
                 </h3>
-                <div className="skills-container">
-                    {tools.map((item, index) => (
-                        <div key={index} >
-                            <ReactIcon icon={item.icon} size={100} color="#fff" />
-                        </div>
-                    ))}
+                <div className="skills-container-wrapper">
+                    <div className="skills-container">
+                        {tools.map((item, index) => (
+                            <div key={index} >
+                                <ReactIcon icon={item.icon} size={100} color="#fff" />
+                            </div>
+                        ))}
+                    </div>
                 </div>
 
                 <h3 className="text-2xl font-bold tracking-tight text-zinc-100 sm:text-3xl">
                     Technologies/Frameworks
                 </h3>
-                <div className="skills-container">
-                    {technologies.map((item, index) => (
-                        <div key={index} >
-                            <ReactIcon icon={item.icon} size={100} color="#fff" />
-                        </div>
-                    ))}
+                <div className="skills-container-wrapper">
+                    <div className="skills-container">
+                        {technologies.map((item, index) => (
+                            <div key={index} >
+                                <ReactIcon icon={item.icon} size={100} color="#fff" />
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>
