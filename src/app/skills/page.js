@@ -27,12 +27,22 @@ export default async function Skills() {
                     Languages
                 </h3>
                 <div className="skills-container-wrapper">
-                    <div className="skills-container">
+                    {/* <div className="skills-container">
                         {languages.map((item, index) => (
                             <div key={index} >
                                 <ReactIcon icon={item.icon} size={100} color="#fff" />
                             </div>
                         ))}
+                    </div> */}
+                    <div className="skills-container">
+                      {languages.map((item, index) => (
+                        <div key={index} className="relative inline-block group">
+                          <ReactIcon icon={item.icon} size={90} color="#fff" />
+                          <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max whitespace-nowrap rounded bg-zinc-800 px-2 py-1 text-xs text-white opacity-0 pointer-events-none transition-opacity duration-200 group-hover:opacity-100">
+                            {item.skill}
+                          </span>
+                        </div>
+                      ))}
                     </div>
                 </div>
 
@@ -42,8 +52,11 @@ export default async function Skills() {
                 <div className="skills-container-wrapper">
                     <div className="skills-container">
                         {tools.map((item, index) => (
-                            <div key={index} >
-                                <ReactIcon icon={item.icon} size={100} color="#fff" />
+                            <div key={index} className="relative inline-block group">
+                                <ReactIcon icon={item.icon} size={90} color="#fff" />
+                                <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max whitespace-nowrap rounded bg-zinc-800 px-2 py-1 text-xs text-white opacity-0 pointer-events-none transition-opacity duration-200 group-hover:opacity-100">
+                                  {item.skill}
+                                </span>
                             </div>
                         ))}
                     </div>
@@ -55,8 +68,11 @@ export default async function Skills() {
                 <div className="skills-container-wrapper">
                     <div className="skills-container">
                         {technologies.map((item, index) => (
-                            <div key={index} >
-                                <ReactIcon icon={item.icon} size={100} color="#fff" />
+                            <div key={index} className="relative inline-block group">
+                                <ReactIcon icon={item.icon} size={90} color="#fff" />
+                                <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max whitespace-nowrap rounded bg-zinc-800 px-2 py-1 text-xs text-white opacity-0 pointer-events-none transition-opacity duration-200 group-hover:opacity-100">
+                                  {item.skill}
+                                </span>
                             </div>
                         ))}
                     </div>

@@ -47,7 +47,9 @@ export default function Home() {
 			<div className={`hidden w-screen h-px ${animate ? 'md:block animate-glow animate-fade-right' : ''} bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0`} />
 			<div className={`my-16 text-center ${animate ? 'animate-fade-in' : ''}`}>
 				<h2 className="text-sm text-zinc-500 mx-6">
-					{`Welcome to the den of a software engineer 🦸‍♂️! I make the magic happen behind the scenes—like a wizard 🧙‍♂️, but with code 💻.`}
+					{`Welcome to the den of a software engineer! 🦸‍♂️ `}
+					<br className="block md:hidden" /> 
+					{`I make the magic happen behind the scenes—like a wizard 🧙‍♂️, but with code 💻.`}
 				</h2>
 			</div>
 		</div>

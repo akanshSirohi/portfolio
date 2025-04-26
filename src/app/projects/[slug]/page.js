@@ -1,4 +1,3 @@
-import { notFound } from "next/navigation";
 import { Header } from "./header";
 import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";

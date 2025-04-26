@@ -1,33 +1,26 @@
+/* Base Styles */
 body {
     place-items: center;
 }
 
 .skills-container-wrapper {
     width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;  /* Firefox */
-    -ms-overflow-style: none;  /* IE and Edge */
-}
-
-.skills-container-wrapper::-webkit-scrollbar {
-    display: none;  /* Chrome, Safari and Opera */
 }
 
 .skills-container {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
     gap: 20px;
     padding: 10px 0;
-    min-width: min-content;
+    min-width: 0;
 }
 
 @media (max-width: 768px) {
     .skills-container {
-        justify-content: flex-start;
         padding: 10px 20px;
     }
-    
     svg {
         width: 60px;
         height: 60px;

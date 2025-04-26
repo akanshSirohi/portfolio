@@ -46,10 +46,10 @@
             "username": "akansh-sirohi"
         },
         {
-            "icon": "FiTwitter",
+            "icon": "FaXTwitter",
             "id": 5,
-            "label": "Twitter",
-            "link": "https://twitter.com/akansh__sirohi",
+            "label": "X",
+            "link": "https://x.com/akansh__sirohi",
             "project_header": true,
             "username": "@akansh__sirohi"
         }
