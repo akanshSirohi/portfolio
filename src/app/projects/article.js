@@ -28,6 +28,9 @@ export const Article = ({ project }) => {
 				<p className="z-20 mt-4 text-sm duration-1000 text-zinc-400 group-hover:text-zinc-200">
 					{project.description}
 				</p>
+				<p className="hidden text-zinc-200 hover:text-zinc-50 lg:block mt-2">
+					Read more <span aria-hidden="true">&rarr;</span>
+				</p>
 			</article>
 		</Link>
 	);
