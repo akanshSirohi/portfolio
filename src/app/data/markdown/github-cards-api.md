@@ -66,28 +66,28 @@ All cards are managed via `help.js`. A few popular examples include:
   </thead>
   <tbody>
     <tr>
-      <td><code>`programming-facts`</code></td>
-      <td><code>`![Card](https://github-cards-worker.akanshsirohi-dev.workers.dev/programming-facts-card)`</code></td>
+      <td><code>programming-facts</code></td>
+      <td><code>&#33;[Card](https://github-cards-worker.akanshsirohi-dev.workers.dev/programming-facts-card)</code></td>
     </tr>
     <tr>
-      <td><code>`motivational-quote`</code></td>
-      <td><code>`![Card](https://github-cards-worker.akanshsirohi-dev.workers.dev/motivational-quotes-card)`</code></td>
+      <td><code>motivational-quote</code></td>
+      <td><code>&#33;[Card](https://github-cards-worker.akanshsirohi-dev.workers.dev/motivational-quotes-card)</code></td>
     </tr>
     <tr>
-      <td><code>`programming-quote`</code></td>
-      <td><code>`![Card](https://github-cards-worker.akanshsirohi-dev.workers.dev/programming-quotes-card)`</code></td>
+      <td><code>programming-quote</code></td>
+      <td><code>&#33;[Card](https://github-cards-worker.akanshsirohi-dev.workers.dev/programming-quotes-card)</code></td>
     </tr>
     <tr>
-      <td><code>`bhagwad-geeta-quotes`</code></td>
-      <td><code>`![Card](https://github-cards-worker.akanshsirohi-dev.workers.dev/bhagavad-geeta-card )`</code></td>
+      <td><code>bhagwad-geeta-quotes</code></td>
+      <td><code>&#33;[Card](https://github-cards-worker.akanshsirohi-dev.workers.dev/bhagavad-geeta-card )</code></td>
     </tr>
     <tr>
-      <td><code>`fun-facts`</code></td>
-      <td><code>`![Card](https://github-cards-worker.akanshsirohi-dev.workers.dev/fun-fact-card)`</code></td>
+      <td><code>fun-facts</code></td>
+      <td><code>&#33;[Card](https://github-cards-worker.akanshsirohi-dev.workers.dev/fun-fact-card)</code></td>
     </tr>
     <tr>
-      <td><code>`my-card`</code></td>
-      <td><code>`![Card](https://github-cards-worker.akanshsirohi-dev.workers.dev/my-card?theme=neon_horizon&text=SGVsbG8sIFdvcmxkIQ)`</code></td>
+      <td><code>my-card</code></td>
+      <td><code>&#33;[Card](https://github-cards-worker.akanshsirohi-dev.workers.dev/my-card?theme=neon_horizon&text=SGVsbG8sIFdvcmxkIQ)</code></td>
     </tr>
   </tbody>
 </table>
