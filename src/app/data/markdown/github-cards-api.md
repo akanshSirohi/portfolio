@@ -119,19 +119,73 @@ All themes are created using HTML and rendered via **Satori**.
 
 ### ⚙️ Custom Arguments (for `CUSTOM` theme only)
 
-| Parameter         | Description                                                                      | Default     |
-| ----------------- | -------------------------------------------------------------------------------- | ----------- |
-| `card_color`      | Card's main background color **or** a Base64‑encoded CSS gradient string         | `#ffffff`   |
-| `font_color`      | Text color                                                                       | `#000000`   |
-| `bg_color`        | Outer background color **or** a Base64‑encoded CSS gradient string               | `#ffffff`   |
-| `shadow_color`    | Card shadow color                                                                | `#00000000` |
-| `google_font`     | Custom google font                                                               | none        |
-| `text_align`      | Text alignment (Top/Middle/Bottom + Left/Middle/Right). Available: `tl`, `tm`, `tr`, `ml`, `mm`, `mr`, `bl`, `bm`, `br` | `tl` |
-| `outer_pad`       | Outer card padding in pixels.                                                    | `15`        |
-| `inner_pad`       | Inner card padding in pixels.                                                    | `15`        |
-| `font_size`       | Font size.                                                                       | `12`        |
-| `card_width`      | Width of the card in pixels.                                                     | `400`       |
-| `card_min_height` | Minimum height of the card in pixels.                                            | `100`       |
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>card_color</code></td>
+      <td>Card's main background color <strong>or</strong> a Base64‑encoded CSS gradient string</td>
+      <td><code>#ffffff</code></td>
+    </tr>
+    <tr>
+      <td><code>font_color</code></td>
+      <td>Text color</td>
+      <td><code>#000000</code></td>
+    </tr>
+    <tr>
+      <td><code>bg_color</code></td>
+      <td>Outer background color <strong>or</strong> a Base64‑encoded CSS gradient string</td>
+      <td><code>#ffffff</code></td>
+    </tr>
+    <tr>
+      <td><code>shadow_color</code></td>
+      <td>Card shadow color</td>
+      <td><code>#00000000</code></td>
+    </tr>
+    <tr>
+      <td><code>google_font</code></td>
+      <td>Custom google font</td>
+      <td>none</td>
+    </tr>
+    <tr>
+      <td><code>text_align</code></td>
+      <td>Text alignment (Top/Middle/Bottom + Left/Middle/Right). Available: <code>tl</code>, <code>tm</code>, <code>tr</code>, <code>ml</code>, <code>mm</code>, <code>mr</code>, <code>bl</code>, <code>bm</code>, <code>br</code></td>
+      <td><code>tl</code></td>
+    </tr>
+    <tr>
+      <td><code>outer_pad</code></td>
+      <td>Outer card padding in pixels.</td>
+      <td><code>15</code></td>
+    </tr>
+    <tr>
+      <td><code>inner_pad</code></td>
+      <td>Inner card padding in pixels.</td>
+      <td><code>15</code></td>
+    </tr>
+    <tr>
+      <td><code>font_size</code></td>
+      <td>Font size.</td>
+      <td><code>12</code></td>
+    </tr>
+    <tr>
+      <td><code>card_width</code></td>
+      <td>Width of the card in pixels.</td>
+      <td><code>400</code></td>
+    </tr>
+    <tr>
+      <td><code>card_min_height</code></td>
+      <td>Minimum height of the card in pixels.</td>
+      <td><code>100</code></td>
+    </tr>
+  </tbody>
+</table>
+
 
 > **Gradient Support**  
 > `card_color` and `bg_color` accept linear or radial gradients. Because commas & parentheses are not URL‑safe, supply the gradient as a **URL‑safe Base64 string**.
