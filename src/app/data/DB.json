@@ -22,6 +22,14 @@
                 "description": "QRSmith is a lightweight, customizable JavaScript library for generating beautiful, branded QR codes effortlessly. Support for logos, color themes, rounded corners, and more—perfect for modern web apps.",
                 "github_repo": "akanshSirohi/QRSmith",
                 "project_date": "2024-01-01"
+            },
+            {
+                "slug": "github-cards-api",
+                "title": "Github Cards API",
+                "description": "GitHub Cards API is a lightweight, serverless utility that allows you to generate beautifully customizable GitHub profile cards. Built using Cloudflare Workers, this project offers fast, globally distributed performance with minimal overhead. It supports a variety of themes, flexible layout options, and custom styling — making it perfect for embedding in your README, portfolio, or anywhere you want.",
+                "github_repo": "akanshSirohi/Github-Cards-API",
+                "live_url": "https://github-cards-worker.akanshsirohi-dev.workers.dev/app",
+                "project_date": "2021-07-14"
             }
         ],
         "featured": "sharex",
