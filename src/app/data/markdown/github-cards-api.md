@@ -56,14 +56,40 @@ Access all available cards and their respective options at:
 
 All cards are managed via `help.js`. A few popular examples include:
 
-| Card Name              | Example                                                                                      |
-| ---------------------- | -------------------------------------------------------------------------------------------- |
-| `programming-facts`    | `![Card](https://github-cards-worker.akanshsirohi-dev.workers.dev/programming-facts-card)`   |
-| `motivational-quote`   | `![Card](https://github-cards-worker.akanshsirohi-dev.workers.dev/motivational-quotes-card)` |
-| `programming-quote`    | `![Card](https://github-cards-worker.akanshsirohi-dev.workers.dev/programming-quotes-card)`  |
-| `bhagwad-geeta-quotes` | `![Card](https://github-cards-worker.akanshsirohi-dev.workers.dev/bhagavad-geeta-card )`     |
-| `fun-facts`            | `![Card](https://github-cards-worker.akanshsirohi-dev.workers.dev/fun-fact-card)`            |
-| `my-card`              | `![Card](https://github-cards-worker.akanshsirohi-dev.workers.dev/my-card?theme=neon_horizon&text=SGVsbG8sIFdvcmxkIQ)` |
+<table>
+  <thead>
+    <tr>
+      <th>Card Name</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>`programming-facts`</code></td>
+      <td><code>`![Card](https://github-cards-worker.akanshsirohi-dev.workers.dev/programming-facts-card)`</code></td>
+    </tr>
+    <tr>
+      <td><code>`motivational-quote`</code></td>
+      <td><code>`![Card](https://github-cards-worker.akanshsirohi-dev.workers.dev/motivational-quotes-card)`</code></td>
+    </tr>
+    <tr>
+      <td><code>`programming-quote`</code></td>
+      <td><code>`![Card](https://github-cards-worker.akanshsirohi-dev.workers.dev/programming-quotes-card)`</code></td>
+    </tr>
+    <tr>
+      <td><code>`bhagwad-geeta-quotes`</code></td>
+      <td><code>`![Card](https://github-cards-worker.akanshsirohi-dev.workers.dev/bhagavad-geeta-card )`</code></td>
+    </tr>
+    <tr>
+      <td><code>`fun-facts`</code></td>
+      <td><code>`![Card](https://github-cards-worker.akanshsirohi-dev.workers.dev/fun-fact-card)`</code></td>
+    </tr>
+    <tr>
+      <td><code>`my-card`</code></td>
+      <td><code>`![Card](https://github-cards-worker.akanshsirohi-dev.workers.dev/my-card?theme=neon_horizon&text=SGVsbG8sIFdvcmxkIQ)`</code></td>
+    </tr>
+  </tbody>
+</table>
 
 **`my-card`**: Special card to show the customized text only.
 
