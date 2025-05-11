@@ -56,6 +56,7 @@ Access all available cards and their respective options at:
 
 All cards are managed via `help.js`. A few popular examples include:
 
+
 <table>
   <thead>
     <tr>
@@ -90,6 +91,7 @@ All cards are managed via `help.js`. A few popular examples include:
     </tr>
   </tbody>
 </table>
+
 
 **`my-card`**: Special card to show the customized text only.
 
