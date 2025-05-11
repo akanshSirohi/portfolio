@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# My Portfolio
 
-## Getting Started
+Hey there! 👋 I'm Akansh, a Software Engineer passionate about building user-friendly and efficient applications. Welcome to my portfolio!
 
-First, run the development server:
+## 🚀 Featured Projects
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### [ShareX](https://f-droid.org/en/packages/com.akansh.fileserversuit/)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+A versatile, open-source app for secure, fast, and effortless file-sharing across Windows, Mac, Linux, Android, and iPhone.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### [Dezk](https://play.google.com/store/apps/details?id=com.anonic.dezk)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Turn your Android device into a powerful PC remote control, complete with macros, clipboard sync, screen-recording, and more—completely ad-free.
 
-## Learn More
+### [QRSmith](https://github.com/akanshSirohi/QRSmith)
 
-To learn more about Next.js, take a look at the following resources:
+A lightweight JavaScript library to generate elegant, branded QR codes with custom logos and themes effortlessly.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### [GitHub Cards API](https://github-cards-worker.akanshsirohi-dev.workers.dev/app)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+A serverless Cloudflare Workers-based API to generate customizable GitHub profile cards, perfect for READMEs and portfolios.
 
-## Deploy on Vercel
+## 🛠️ Technical Skills
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* **Languages:** JavaScript, PHP, Java, Python, React, Node.js, MySQL, Android
+* **Technologies:** Next.js, GraphQL, WordPress, CodeIgniter, ElectronJS, MongoDB, Prisma, Payload CMS, Strapi, Socket.io
+* **Developer Tools:** Linux, VS Code, IntelliJ IDEA, Android Studio, Postman, Git, GitHub, Docker, Heroku, Netlify, Firebase
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🌐 Connect with Me
+
+* [GitHub](https://github.com/akanshSirohi)
+* [LinkedIn](https://www.linkedin.com/in/akansh-sirohi)
+* [X (Twitter)](https://x.com/akansh__sirohi)
+
+Feel free to explore my projects, or connect if you’d like to collaborate or chat about tech! 😊
