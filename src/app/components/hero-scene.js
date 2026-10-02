@@ -1,7 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { createNameShape, seededRandom } from "./name-signature";
+import {
+  createNameShape,
+  loadNameTypeface,
+  NAME_TYPEFACE,
+  seededRandom,
+} from "./name-signature";
 
 // React Bits Particles approach, adapted to a spring-driven name sculpture in Three.js.
 // Copyright (c) 2026 David Haz. See public/licenses/react-bits.txt.
@@ -59,7 +64,7 @@ export function HeroScene({
           import("three"),
           import("three/addons/controls/OrbitControls.js"),
         ]);
-        await document.fonts.ready;
+        await Promise.all([document.fonts.ready, loadNameTypeface()]);
         if (disposed || !host.current) return;
         const container = host.current;
         renderer = new THREE.WebGLRenderer({
@@ -88,7 +93,7 @@ export function HeroScene({
         controls.saveState();
         renderer.domElement.setAttribute(
           "aria-label",
-          "Interactive particle name. Press Space to create a ripple.",
+          "Interactive binary name. Press Space to create a ripple.",
         );
         renderer.domElement.setAttribute("aria-describedby", "name-lab-help");
         const sculpture = new THREE.Group();
@@ -97,6 +102,8 @@ export function HeroScene({
         const positions = new Float32Array(count * 3);
         const velocities = new Float32Array(count * 3);
         const seeds = new Float32Array(count);
+        const bits = new Float32Array(count);
+        let activeCount = 0;
         let targets = new Float32Array(count * 3);
         let first = true;
         const geometry = new THREE.BufferGeometry();
@@ -107,6 +114,20 @@ export function HeroScene({
           ),
         );
         geometry.setAttribute("aSeed", new THREE.BufferAttribute(seeds, 1));
+        geometry.setAttribute("aBit", new THREE.BufferAttribute(bits, 1));
+        const atlas = document.createElement("canvas");
+        atlas.width = 128;
+        atlas.height = 64;
+        const glyphs = atlas.getContext("2d");
+        glyphs.fillStyle = "white";
+        glyphs.font = `700 56px ${NAME_TYPEFACE}`;
+        glyphs.textAlign = "center";
+        glyphs.textBaseline = "middle";
+        glyphs.fillText("0", 32, 34);
+        glyphs.fillText("1", 96, 34);
+        const glyphTexture = new THREE.CanvasTexture(atlas);
+        glyphTexture.generateMipmaps = false;
+        glyphTexture.minFilter = THREE.LinearFilter;
         const material = new THREE.ShaderMaterial({
           transparent: true,
           depthWrite: false,
@@ -115,36 +136,42 @@ export function HeroScene({
             uPhase: { value: 0 },
             uSpeed: { value: 1 },
             uSize: { value: 3.1 },
+            uGlyphs: { value: glyphTexture },
             uPrimary: { value: new THREE.Color() },
             uSecondary: { value: new THREE.Color() },
           },
           vertexShader: `
             attribute float aSeed;
+            attribute float aBit;
             uniform float uTime;
             uniform float uPhase;
             uniform float uSpeed;
             uniform float uSize;
             varying float vSeed;
             varying float vTint;
+            varying float vBit;
             void main() {
               vSeed = aSeed;
+              vBit = aBit;
               vTint = clamp(position.x * 0.216 + 0.51, 0.0, 1.0);
               vec3 p = position;
               p.z += sin(p.x * 1.8 + uTime * uSpeed + uPhase) * 0.07;
               vec4 mv = modelViewMatrix * vec4(p, 1.0);
-              gl_PointSize = uSize * mix(0.75, 1.2, aSeed) * (8.0 / max(1.0, -mv.z));
+              gl_PointSize = uSize * (8.0 / max(1.0, -mv.z));
               gl_Position = projectionMatrix * mv;
             }
           `,
           fragmentShader: `
             uniform vec3 uPrimary;
             uniform vec3 uSecondary;
+            uniform sampler2D uGlyphs;
             varying float vSeed;
             varying float vTint;
+            varying float vBit;
             void main() {
-              float distance = length(gl_PointCoord - vec2(0.5));
-              if (distance > 0.5) discard;
-              float alpha = smoothstep(0.5, 0.26, distance) * mix(0.75, 1.0, vSeed);
+              vec2 uv = vec2((gl_PointCoord.x + vBit) * 0.5, 1.0 - gl_PointCoord.y);
+              float alpha = texture2D(uGlyphs, uv).a * mix(0.85, 1.0, vSeed);
+              if (alpha < 0.05) discard;
               gl_FragColor = vec4(mix(uPrimary, uSecondary, vTint), alpha);
               #include <tonemapping_fragment>
               #include <colorspace_fragment>
@@ -170,17 +197,18 @@ export function HeroScene({
           render();
         };
         const updateName = () => {
-          const family = getComputedStyle(container)
-            .getPropertyValue("--display")
-            .trim();
-          const shape = createNameShape(value.current, family, count);
+          const shape = createNameShape(value.current, count);
           targets = shape.positions;
+          activeCount = shape.seeds.length;
+          geometry.setDrawRange(0, activeCount);
           seeds.set(shape.seeds);
+          bits.set(shape.bits);
           geometry.attributes.aSeed.needsUpdate = true;
+          geometry.attributes.aBit.needsUpdate = true;
           material.uniforms.uPhase.value = shape.profile.phase;
           material.uniforms.uSpeed.value = shape.profile.speed;
           const random = seededRandom(shape.profile.seed);
-          for (let index = 0; index < count; index++) {
+          for (let index = 0; index < activeCount; index++) {
             if (first)
               positions.set(
                 [
@@ -241,7 +269,7 @@ export function HeroScene({
           const px = targetX * 3.3 * camera.aspect,
             py = -targetY * 3.3;
           const pulseAge = time - pulseAt;
-          for (let index = 0; index < count; index++) {
+          for (let index = 0; index < activeCount; index++) {
             const offset = index * 3;
             const x = positions[offset],
               y = positions[offset + 1];
@@ -287,7 +315,7 @@ export function HeroScene({
           camera.updateProjectionMatrix();
           renderer.setSize(bounds.width, bounds.height, false);
           material.uniforms.uSize.value =
-            (3.3 * renderer.getPixelRatio() * bounds.height) / 515;
+            (8.8 * renderer.getPixelRatio() * bounds.height) / 515;
           render();
         };
         const tick = (timestamp) => {
@@ -472,6 +500,7 @@ export function HeroScene({
           );
           geometry.dispose();
           material.dispose();
+          glyphTexture.dispose();
           renderer.dispose();
           renderer.forceContextLoss();
           renderer.domElement.remove();

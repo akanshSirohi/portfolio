@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { HeroScene } from "./hero-scene";
 import {
+  NAME_TYPEFACE,
   nameLines,
   normalizeName,
   signatureProfile,
@@ -11,7 +12,7 @@ import {
 
 export function NameLab() {
   const scope = useRef(null);
-  const [name, setName] = useState("Akansh");
+  const [name, setName] = useState("Akansh Sirohi");
   const [paused, setPaused] = useState(false);
   const [ready, setReady] = useState(false);
   const [orbit, setOrbit] = useState(false);
@@ -21,6 +22,7 @@ export function NameLab() {
   const profile = signatureProfile(name);
   const lines = nameLines(name);
   const style = {
+    "--name-family": NAME_TYPEFACE,
     "--signature-light": profile.palette.light[0],
     "--signature-light-secondary": profile.palette.light[1],
     "--signature-dark": profile.palette.dark[0],

@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "NameLabGoogleSans";
+  src: url("/fonts/GoogleSans-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 :root {
   --paper: #f1efe7;
   --ink: #24251f;
@@ -3105,16 +3112,12 @@ html[data-theme="dark"] .name-lab {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font: 600 var(--name-size)/1.08 var(--display);
+  font: 700 var(--name-size)/1.08 var(--name-family);
   pointer-events: none;
 }
 .name-lab-fallback > span {
-  background: radial-gradient(
-    circle,
-    var(--signature-primary) 1.4px,
-    transparent 1.6px
-  );
-  background-size: 4px 4px;
+  background: var(--signature-primary);
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='7'%3E%3Ctext x='0' y='5' fill='white' font-family='monospace' font-size='6'%3E01%3C/text%3E%3C/svg%3E");
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;

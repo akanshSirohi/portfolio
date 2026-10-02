@@ -6,6 +6,13 @@ const palettes = [
   { light: ["#b04d63", "#4267a0"], dark: ["#ffadc0", "#b3ccff"] },
 ];
 
+// The high x-height and heavy strokes keep sampled binary curves readable.
+export const NAME_TYPEFACE = '"NameLabGoogleSans", Arial, sans-serif';
+
+export async function loadNameTypeface() {
+  await document.fonts.load(`700 200px ${NAME_TYPEFACE}`);
+}
+
 export function normalizeName(name) {
   return name.normalize("NFC").trim().replace(/\s+/g, " ");
 }
@@ -57,7 +64,7 @@ export function nameLines(name) {
 }
 
 // Shared between the live sculpture and its downloadable, settled composition.
-export function createNameShape(name, family, count = 3200) {
+export function createNameShape(name, count = 3200) {
   const profile = signatureProfile(name);
   const random = seededRandom(profile.seed);
   const canvas = document.createElement("canvas");
@@ -66,12 +73,12 @@ export function createNameShape(name, family, count = 3200) {
   const context = canvas.getContext("2d", { willReadFrequently: true });
   const lines = nameLines(name);
   let size = Math.min(240, 430 / lines.length);
-  context.font = `600 ${size}px ${family}`;
+  context.font = `700 ${size}px ${NAME_TYPEFACE}`;
   const width = Math.max(
     ...lines.map((line) => context.measureText(line).width),
   );
   size *= Math.min(1, 720 / Math.max(1, width));
-  context.font = `600 ${size}px ${family}`;
+  context.font = `700 ${size}px ${NAME_TYPEFACE}`;
   context.textAlign = "center";
   context.textBaseline = "middle";
   context.fillStyle = "white";
@@ -84,33 +91,39 @@ export function createNameShape(name, family, count = 3200) {
   });
   const pixels = context.getImageData(0, 0, 800, 560).data;
   const samples = [];
-  for (let y = 2; y < 560; y += 3) {
-    for (let x = 2; x < 800; x += 3) {
+  // One glyph per cell keeps the binary strokes legible without overlapping.
+  for (let y = 5; y < 560; y += 10) {
+    for (let x = 4; x < 800; x += 8) {
       if (pixels[(x + y * 800) * 4 + 3] > 128) samples.push([x, y]);
     }
   }
-  const positions = new Float32Array(count * 3);
-  const seeds = new Float32Array(count);
-  for (let index = 0; index < count; index++) {
-    const sample = samples[Math.floor(random() * samples.length)] || [400, 280];
-    const x = ((sample[0] - 400 + (random() - 0.5) * 3) / 800) * 6.1;
-    const y = ((280 - sample[1] + (random() - 0.5) * 3) / 560) * 4.3;
+  const length = Math.min(samples.length, count);
+  const positions = new Float32Array(length * 3);
+  const seeds = new Float32Array(length);
+  const bits = new Float32Array(length);
+  const bytes = new TextEncoder().encode(normalizeName(name) || "Your name");
+  for (let index = 0; index < length; index++) {
+    const sample = samples[index];
+    const x = ((sample[0] - 400) / 800) * 6.1;
+    const y = ((280 - sample[1]) / 560) * 4.3;
     positions.set(
       [x, y, Math.sin(x * 1.4 + profile.phase) * 0.18 + (random() - 0.5) * 0.1],
       index * 3,
     );
     seeds[index] = random();
+    bits[index] =
+      (bytes[Math.floor(index / 8) % bytes.length] >> (7 - (index % 8))) & 1;
   }
-  return { positions, seeds, profile };
+  return { positions, seeds, bits, profile };
 }
 
 export async function saveSignature(name, family, dark) {
-  await document.fonts.ready;
+  await Promise.all([document.fonts.ready, loadNameTypeface()]);
   const canvas = document.createElement("canvas");
   canvas.width = 1800;
   canvas.height = 1200;
   const context = canvas.getContext("2d");
-  const { positions, seeds, profile } = createNameShape(name, family);
+  const { positions, seeds, bits, profile } = createNameShape(name);
   const [primary, secondary] = profile.palette[dark ? "dark" : "light"];
   const paper = dark ? "#171d19" : "#f1efe6";
   const ink = dark ? "#e9ecdf" : "#242720";
@@ -140,7 +153,7 @@ export async function saveSignature(name, family, dark) {
   }
   context.globalAlpha = 1;
   context.font = "18px 'Courier New', monospace";
-  context.fillText("NAME LAB / A SIGNATURE IN PARTICLES", 105, 145);
+  context.fillText("NAME LAB / A SIGNATURE IN BINARY", 105, 145);
   context.textAlign = "right";
   context.fillText(`NO. ${profile.id}`, 1695, 145);
   context.textAlign = "left";
@@ -150,20 +163,21 @@ export async function saveSignature(name, family, dark) {
   gradient.addColorStop(0, primary);
   gradient.addColorStop(1, secondary);
   context.fillStyle = gradient;
+  context.font = `700 17px ${NAME_TYPEFACE}`;
+  context.textAlign = "center";
+  context.textBaseline = "middle";
   for (let index = 0; index < seeds.length; index++) {
-    context.globalAlpha = 0.6 + seeds[index] * 0.4;
-    context.beginPath();
-    context.arc(
+    context.globalAlpha = 0.85 + seeds[index] * 0.15;
+    context.fillText(
+      String(bits[index]),
       900 + positions[index * 3] * 220,
       610 - positions[index * 3 + 1] * 220,
-      1.6 + seeds[index] * 1.1,
-      0,
-      Math.PI * 2,
     );
-    context.fill();
   }
   context.globalAlpha = 1;
   context.fillStyle = ink;
+  context.textAlign = "left";
+  context.textBaseline = "alphabetic";
   context.font = "18px 'Courier New', monospace";
   context.fillText("AKANSH SIROHI / SOFTWARE DEVELOPER", 105, 1060);
   context.textAlign = "right";
