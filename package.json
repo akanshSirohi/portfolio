@@ -5,49 +5,21 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "serve out",
+    "lint": "eslint ."
   },
   "dependencies": {
-    "@react-icons/all-files": "^4.1.0",
-    "@tailwindcss/typography": "^0.5.10",
-    "gray-matter": "^4.0.3",
-    "lucide-react": "^0.503.0",
-    "motion": "^12.9.2",
+    "gsap": "^3.13.0",
     "next": "15.3.1",
-    "raw-loader": "^4.0.2",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "react-icons": "^5.3.0",
-    "react-markdown": "^10.1.0",
-    "react-tilt": "^1.0.2",
-    "react-vertical-timeline-component": "^3.6.0",
-    "rehype-raw": "^7.0.0"
+    "three": "^0.186.1"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
     "eslint": "^9.25.1",
     "eslint-config-next": "15.3.1",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1"
-  },
-  "overrides": {
-    "lucide-react": {
-      "react": "^19.0.0"
-    },
-    "react-markdown": {
-      "react": "^19.0.0"
-    },
-    "react-tilt": {
-      "react": "^19.0.0",
-      "react-dom": "^19.0.0"
-    },
-    "motion": {
-      "react": "^19.0.0",
-      "react-dom": "^19.0.0"
-    },
-    "framer-motion": {
-      "react": "^19.0.0",
-      "react-dom": "^19.0.0"
-    }
+    "serve": "^14.2.4",
+    "typescript": "~5.8.3"
   }
 }

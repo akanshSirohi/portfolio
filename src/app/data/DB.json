@@ -1,193 +1,189 @@
 {
-    "projects": {
-        "all_projects": [
-            {
-                "slug": "sharex",
-                "title": "ShareX",
-                "description": "Our open-source, web-based app is the ultimate file-sharing solution. Enjoy private sharing, real-time logs, and customizable themes. It works on Windows, Mac, Linux, Android, and iPhone, offering lightning-fast, offline transfers with 13 interface themes. Experience seamless, secure file sharing with ease.",
-                "github_repo": "akanshSirohi/ShareX",
-                "live_url": "https://f-droid.org/en/packages/com.akansh.fileserversuit/",
-                "project_date": "2020-06-30"
-            },
-            {
-                "slug": "dezk",
-                "title": "Dezk",
-                "description": "Dezk turns your Android phone into a powerful PC remote: full mouse-pad & keyboard, one-tap hot-key shortcuts, macro automation (batch/VBS/PowerShell), clipboard and text-paste sync, on-device screen-recording, brightness/volume control and more—all completely ad-free.",
-                "live_url": "https://play.google.com/store/apps/details?id=com.anonic.dezk",
-                "project_date": "2021-07-01"
-            },
-            {
-                "slug": "qrsmith",
-                "title": "QRSmith",
-                "description": "QRSmith is a lightweight, customizable JavaScript library for generating beautiful, branded QR codes effortlessly. Support for logos, color themes, rounded corners, and more—perfect for modern web apps.",
-                "github_repo": "akanshSirohi/QRSmith",
-                "project_date": "2024-01-01"
-            },
-            {
-                "slug": "github-cards-api",
-                "title": "Github Cards API",
-                "description": "GitHub Cards API is a lightweight, serverless utility that allows you to generate beautifully customizable GitHub profile cards. Built using Cloudflare Workers, this project offers fast, globally distributed performance with minimal overhead. It supports a variety of themes, flexible layout options, and custom styling — making it perfect for embedding in your README, portfolio, or anywhere you want.",
-                "github_repo": "akanshSirohi/Github-Cards-API",
-                "live_url": "https://github-cards-worker.akanshsirohi-dev.workers.dev/app",
-                "project_date": "2021-07-14"
-            }
-        ],
-        "featured": "sharex",
-        "top2": "dezk",
-        "top3": "qrsmith"
+  "contacts": [
+    {
+      "icon": "FiGithub",
+      "id": 7,
+      "label": "Github",
+      "link": "https://github.com/akanshSirohi",
+      "project_header": true,
+      "username": "akanshSirohi"
     },
-    "contacts": [
-        {
-            "icon": "FiGithub",
-            "id": 7,
-            "label": "Github",
-            "link": "https://github.com/akanshSirohi",
-            "project_header": true,
-            "username": "akanshSirohi"
-        },
-        {
-            "icon": "FiLinkedin",
-            "id": 6,
-            "label": "Linkedin",
-            "link": "https://www.linkedin.com/in/akansh-sirohi",
-            "project_header": true,
-            "username": "akansh-sirohi"
-        },
-        {
-            "icon": "FaXTwitter",
-            "id": 5,
-            "label": "X",
-            "link": "https://x.com/akansh__sirohi",
-            "project_header": true,
-            "username": "@akansh__sirohi"
-        }
-    ],
-    "skills": {
-        "languages": [
-            {
-                "icon": "BiLogoPhp",
-                "skill": "PHP"
-            },
-            {
-                "icon": "IoLogoJavascript",
-                "skill": "JavaScript"
-            },
-            {
-                "icon": "FaReact",
-                "skill": "React"
-            },
-            {
-                "icon": "DiNodejs",
-                "skill": "Node.js"
-            },
-            {
-                "icon": "FaJava",
-                "skill": "Java"
-            },
-            {
-                "icon": "SiMysql",
-                "skill": "MySQL"
-            },
-            {
-                "icon": "FaPython",
-                "skill": "Python"
-            },
-            {
-                "icon": "MdOutlineAndroid",
-                "skill": "Android"
-            }
-        ],
-        "tools": [
-            {
-                "icon": "FaLinux",
-                "skill": "Linux"
-            },
-            {
-                "icon": "VscVscode",
-                "skill": "VS Code"
-            },
-            {
-                "icon": "SiIntellijidea",
-                "skill": "IntelliJ IDEA"
-            },
-            {
-                "icon": "SiAndroidstudio",
-                "skill": "Android Studio"
-            },
-            {
-                "icon": "SiPostman",
-                "skill": "Postman"
-            },
-            {
-                "icon": "SiInsomnia",
-                "skill": "Insomnia"
-            },
-            {
-                "icon": "FaGitAlt",
-                "skill": "Git"
-            },
-            {
-                "icon": "FaGithub",
-                "skill": "GitHub"
-            },
-            {
-                "icon": "SiHeroku",
-                "skill": "Heroku"
-            },
-            {
-                "icon": "SiNetlify",
-                "skill": "Netlify"
-            },
-            {
-                "icon": "IoLogoFirebase",
-                "skill": "Firebase"
-            },
-            {
-                "icon": "FaDocker",
-                "skill": "Docker"
-            }
-        ],
-        "tecnologies": [
-            {
-                "icon": "RiNextjsFill",
-                "skill": "NextJs"
-            },
-            {
-                "icon": "GrGraphQl",
-                "skill": "GraphQL"
-            },
-            {
-                "icon": "FaWordpress",
-                "skill": "WordPress"
-            },
-            {
-                "icon": "DiCodeigniter",
-                "skill": "CodeIgniter"
-            },
-            {
-                "icon": "IoLogoElectron",
-                "skill": "ElectronJS"
-            },
-            {
-                "icon": "SiMongodb",
-                "skill": "MongoDB"
-            },
-            {
-                "icon": "SiPrisma",
-                "skill": "Prisma"
-            },
-            {
-                "icon": "SiPayloadcms",
-                "skill": "Payload CMS"
-            },
-            {
-                "icon": "SiStrapi",
-                "skill": "Strapi"
-            },
-            {
-                "icon": "SiSocketdotio",
-                "skill": "Socket.io"
-            }
-        ]
+    {
+      "icon": "FiLinkedin",
+      "id": 6,
+      "label": "Linkedin",
+      "link": "https://www.linkedin.com/in/akansh-sirohi",
+      "project_header": true,
+      "username": "akansh-sirohi"
+    },
+    {
+      "icon": "FaXTwitter",
+      "id": 5,
+      "label": "X",
+      "link": "https://x.com/akansh__sirohi",
+      "project_header": true,
+      "username": "@akansh__sirohi"
     }
+  ],
+  "skills": {
+    "languages": [
+      {
+        "icon": "BiLogoPhp",
+        "skill": "PHP"
+      },
+      {
+        "icon": "IoLogoJavascript",
+        "skill": "JavaScript"
+      },
+      {
+        "icon": "FaReact",
+        "skill": "React"
+      },
+      {
+        "icon": "DiNodejs",
+        "skill": "Node.js"
+      },
+      {
+        "icon": "FaJava",
+        "skill": "Java"
+      },
+      {
+        "icon": "SiMysql",
+        "skill": "MySQL"
+      },
+      {
+        "icon": "FaPython",
+        "skill": "Python"
+      },
+      {
+        "icon": "MdOutlineAndroid",
+        "skill": "Android"
+      },
+      {
+        "skill": "Kotlin"
+      },
+      {
+        "skill": "SQL"
+      },
+      {
+        "skill": "HTML / CSS"
+      }
+    ],
+    "tools": [
+      {
+        "icon": "FaLinux",
+        "skill": "Linux"
+      },
+      {
+        "icon": "VscVscode",
+        "skill": "VS Code"
+      },
+      {
+        "icon": "SiIntellijidea",
+        "skill": "IntelliJ IDEA"
+      },
+      {
+        "icon": "SiAndroidstudio",
+        "skill": "Android Studio"
+      },
+      {
+        "icon": "SiPostman",
+        "skill": "Postman"
+      },
+      {
+        "icon": "SiInsomnia",
+        "skill": "Insomnia"
+      },
+      {
+        "icon": "FaGitAlt",
+        "skill": "Git"
+      },
+      {
+        "icon": "FaGithub",
+        "skill": "GitHub"
+      },
+      {
+        "icon": "SiHeroku",
+        "skill": "Heroku"
+      },
+      {
+        "icon": "SiNetlify",
+        "skill": "Netlify"
+      },
+      {
+        "icon": "IoLogoFirebase",
+        "skill": "Firebase"
+      },
+      {
+        "icon": "FaDocker",
+        "skill": "Docker"
+      },
+      {
+        "skill": "Dokploy"
+      },
+      {
+        "skill": "n8n"
+      },
+      {
+        "skill": "AI agentic development"
+      }
+    ],
+    "tecnologies": [
+      {
+        "icon": "RiNextjsFill",
+        "skill": "NextJs"
+      },
+      {
+        "icon": "GrGraphQl",
+        "skill": "GraphQL"
+      },
+      {
+        "icon": "FaWordpress",
+        "skill": "WordPress"
+      },
+      {
+        "icon": "DiCodeigniter",
+        "skill": "CodeIgniter"
+      },
+      {
+        "icon": "IoLogoElectron",
+        "skill": "ElectronJS"
+      },
+      {
+        "icon": "SiMongodb",
+        "skill": "MongoDB"
+      },
+      {
+        "icon": "SiPrisma",
+        "skill": "Prisma"
+      },
+      {
+        "icon": "SiPayloadcms",
+        "skill": "Payload CMS"
+      },
+      {
+        "icon": "SiStrapi",
+        "skill": "Strapi"
+      },
+      {
+        "icon": "SiSocketdotio",
+        "skill": "Socket.io"
+      },
+      {
+        "skill": "Laravel"
+      },
+      {
+        "skill": "WooCommerce"
+      },
+      {
+        "skill": "Jetpack Compose"
+      },
+      {
+        "skill": "Three.js"
+      },
+      {
+        "skill": "MediaPipe"
+      }
+    ]
+  }
 }
