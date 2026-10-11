@@ -307,7 +307,7 @@ export function ProjectVisual({ slug }) {
           </span>
           <div className="catalog-diagram">
             <span className="catalog-number">
-              100k<span>+</span>
+              1M<span>+</span>
             </span>
             <p className="mono">DIAMOND SKUS / ONE PIPELINE</p>
             <div className="catalog-pipeline mono">

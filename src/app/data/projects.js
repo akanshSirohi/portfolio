@@ -12,7 +12,7 @@ export const projects = [
     live: "https://akanshsirohi.github.io/QuadQR/demo/",
     liveLabel: "Try the demo",
     headline: "What if a code could carry more?",
-    body: "QuadQR is an independent experiment in color-based information encoding. Red, green, blue, and white represent four states, allowing each normal data cell to carry two raw bits. The project brings together an encoder, a renderer, image and camera scanning, and a browser demo.",
+    body: "I built QuadQR to explore a question: could modern cameras read more information from the same area using color? The result is an independent matrix-code format with its own encoder, renderer, image and camera scanner, and browser demo.",
     features: [
       "RGBW encoding and optional experimental Triangle16 high-density mode",
       "Reed–Solomon error correction and perspective-aware scanning",
@@ -20,6 +20,27 @@ export const projects = [
       "Compression, benchmarks, and image reliability tools",
     ],
     note: "QuadQR is an experimental custom format. It requires a QuadQR-aware scanner; standard QR readers cannot decode it.",
+    sections: [
+      {
+        title: "Color carries information",
+        body: "The colors encode data: four RGBW states carry two raw bits per cell. Experimental Triangle16 splits body cells into two colored triangles for four raw bits. That mode is off by default and needs real-world testing.",
+      },
+      {
+        title: "Recovery informed by the scanner",
+        body: "Spectrum ECC uses color confidence to guide Reed–Solomon recovery and try bounded alternative readings. Spatial interleaving spreads neighboring data across the symbol to reduce concentrated damage. Recovered candidates still face error-correction and CRC checks.",
+      },
+      {
+        title: "Protect the payload",
+        body: "Optional AES-256-GCM encryption protects contents using a password or application key. Ed25519 signatures let applications verify payloads against a trusted public key. Encryption and signing can be combined; secret keys stay outside the symbol.",
+      },
+      {
+        title: "Measure the idea",
+        body: "The browser demo brings generation, camera scanning, compression, and image stress tests together. Capacity benchmarks compare equal matrix dimensions, but matching ECC labels do not establish equal damage tolerance. Raw density is only part of usable capacity.",
+        links: [
+          { label: "Explore the interactive demo", href: "https://akanshsirohi.github.io/QuadQR/demo/" },
+        ],
+      },
+    ],
   },
   {
     slug: "promptvault",
@@ -68,13 +89,13 @@ export const projects = [
     slug: "quadqr-sdk",
     title: "QuadQR SDK",
     category: "Libraries",
-    kind: "Native codec & platform bindings",
+    kind: "Rust implementation & platform bindings",
     description:
-      "The color-code experiment, closer to the metal. A Rust core with bindings for Android, Flutter, and an experimental WebAssembly adapter.",
+      "QuadQR beyond JavaScript. A reusable Rust implementation with native bridges for Android and Flutter, plus an experimental WebAssembly adapter.",
     tags: ["Rust", "Android", "Flutter", "WebAssembly"],
     github: "https://github.com/akanshSirohi/QuadQR-SDK",
     headline: "One format. More possibilities.",
-    body: "The native companion to QuadQR brings its codec and scanner into a reusable Rust core. Platform bindings make the format accessible to Android and Flutter applications, while a desktop demo provides a place to generate codes, scan images, and explore reliability.",
+    body: "QuadQR SDK implements the color-code format in Rust so other technologies can reuse its encoding, rendering, and scanning logic. Platform bindings connect that shared core to application code.",
     features: [
       "Reusable Rust encoder, decoder, renderer, and scanner",
       "Java/Kotlin Android AAR and Android Flutter FFI bindings",
@@ -82,6 +103,23 @@ export const projects = [
       "Compression, encryption, signing, and SVG/PNG rendering",
     ],
     note: "The original JavaScript implementation remains the recommended web implementation. The WASM adapter is experimental.",
+    sections: [
+      {
+        title: "A core other technologies can use",
+        body: "Use the Rust library directly or integrate through native bridges. C ABI and JNI interfaces connect the core to Java/Kotlin Android apps; Flutter uses FFI and currently targets Android.",
+      },
+      {
+        title: "The same color format",
+        body: "The codec follows the JavaScript v6 reference, supporting RGBW and experimental Triangle16, Reed–Solomon recovery, compression, encryption, and signatures. Matching format envelopes allow implementations to exchange codes. Decoding still requires a QuadQR-aware scanner.",
+      },
+      {
+        title: "Explore on desktop",
+        body: "A desktop demo combines generation, image and camera scanning, reliability experiments, and benchmarking. SVG and PNG output support application workflows, while configurable Rust features let integrators choose the capabilities they need.",
+        links: [
+          { label: "Read the SDK integration guide", href: "https://github.com/akanshSirohi/QuadQR-SDK#readme" },
+        ],
+      },
+    ],
   },
   {
     slug: "sharex",
@@ -186,12 +224,12 @@ export const projects = [
     category: "Client work",
     kind: "Backend tooling · Keyideas Infotech",
     description:
-      "From vendor feeds to a usable catalog. Internal WordPress tools that normalize and synchronize more than 100,000 diamond SKUs with WooCommerce.",
+      "From vendor feeds to a usable catalog. Internal WordPress tools that normalize and synchronize more than one million diamond SKUs with WooCommerce.",
     tags: ["PHP", "MySQL", "WordPress", "Background jobs"],
     headline: "A large catalog needs a reliable pipeline.",
     body: "I developed internal WordPress plugins to ingest, normalize, and synchronize diamond data from multiple vendors. The work covered both a recurring high-volume import pipeline and automation that configures a jewelry storefront to sell diamonds end-to-end.",
     features: [
-      "Vendor API and feed ingestion for 100k+ diamond SKUs",
+      "Vendor API and feed ingestion for more than one million diamond SKUs",
       "Batched imports, validation, background jobs, and scheduled synchronization",
       "Database indexing to support fast search and listing pages",
       "Product attributes, pricing rules, and catalog filters",
@@ -205,17 +243,34 @@ export const projects = [
     category: "Client work",
     kind: "E-commerce engineering · Keyideas Infotech",
     description:
-      "Custom storefronts for considered purchases. WordPress and WooCommerce jewelry websites with ring configuration, diamond discovery, and wishlist features.",
-    tags: ["WordPress", "WooCommerce", "PHP"],
+      "Custom jewelry storefronts and product tools. WordPress and WooCommerce plugins, ring-building workflows, flexible product filters, and R&D into realistic 3D jewelry viewing.",
+    tags: ["WordPress", "WooCommerce", "PHP", "3D visualization", "Product R&D"],
     headline: "Helping customers find the right piece.",
-    body: "At Keyideas Infotech, I built and maintained jewelry e-commerce websites using WordPress, WooCommerce, and PHP. My contribution included custom ring-design and storefront features, product discovery, and ongoing production support across multiple client projects.",
+    body: "At Keyideas Infotech, I develop custom plugins and contribute to R&D for company products alongside building and maintaining jewelry e-commerce websites. My work includes Ring Builder, Universal Product Filters, and a 3D Jewellery Viewer, spanning product configuration, easier catalog navigation, and realistic visual presentation.",
     features: [
-      "Custom jewelry product configuration and ring-design flows",
-      "Product catalogs and diamond listing pages",
-      "Search and wishlist functionality",
+      "Custom WordPress and WooCommerce plugin development",
+      "Ring Builder for jewelry configuration and ring-design workflows",
+      "Universal Product Filters for easier filter management and product discovery",
+      "3D Jewellery Viewer work focused on realistic jewelry and diamond effects",
+      "Research and development for company products",
+      "Product catalogs, diamond listings, search, and wishlist functionality",
       "Production troubleshooting and stable iterative releases",
       "Site performance improvements across client projects",
     ],
     note: "Professional work developed at Keyideas Infotech across multiple client jewelry storefronts.",
+    sections: [
+      {
+        title: "Plugins shaped around the product",
+        body: "I create custom plugins for jewelry commerce, including Ring Builder for ring configuration and Universal Product Filters for easier filter management. The work connects the customer's shopping experience with the tools a team needs to manage its storefront.",
+      },
+      {
+        title: "Exploring realistic 3D jewelry",
+        body: "I also worked on a 3D Jewellery Viewer, exploring how to recreate realistic jewelry and diamond effects. This work focuses on the visual qualities that help a digital piece communicate its appearance beyond a conventional product image.",
+      },
+      {
+        title: "Research that informs company products",
+        body: "My role includes R&D for company products: investigating approaches, experimenting with features, and developing custom solutions. Alongside that exploration, I maintain client storefronts, improve performance, and resolve production issues as the products evolve.",
+      },
+    ],
   },
 ].filter((project) => !project.hidden);

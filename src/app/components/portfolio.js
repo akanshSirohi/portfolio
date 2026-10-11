@@ -136,15 +136,6 @@ export function Work({ standalone = false }) {
                 duration: 0.7,
                 ease: "power3.out",
               });
-              const arrow = link.querySelector(".project-open svg");
-              const arrowX = gsap.quickTo(arrow, "x", {
-                duration: 0.45,
-                ease: "power3.out",
-              });
-              const arrowY = gsap.quickTo(arrow, "y", {
-                duration: 0.45,
-                ease: "power3.out",
-              });
               const move = (event) => {
                 const bounds = link.getBoundingClientRect();
                 x(-((event.clientY - bounds.top) / bounds.height - 0.5) * 6);
@@ -157,18 +148,10 @@ export function Work({ standalone = false }) {
                   "--spot-y",
                   `${event.clientY - bounds.top}px`,
                 );
-                arrowX(
-                  ((event.clientX - bounds.left) / bounds.width - 0.5) * 10,
-                );
-                arrowY(
-                  ((event.clientY - bounds.top) / bounds.height - 0.5) * 10,
-                );
               };
               const leave = () => {
                 x(0);
                 y(0);
-                arrowX(0);
-                arrowY(0);
               };
               link.addEventListener("pointermove", move);
               link.addEventListener("pointerleave", leave);
