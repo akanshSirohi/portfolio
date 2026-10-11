@@ -27,17 +27,41 @@ export const projects = [
     category: "Applications",
     kind: "Offline-first prompt workspace",
     description:
-      "A place for the prompts worth keeping. An Android app for organizing, refining, and reusing prompts, with AI creation and RAG-supported chat.",
-    tags: ["Kotlin", "Jetpack Compose", "AI workflows"],
+      "A place for the prompts worth keeping. An offline-first Android workspace with on-device AI, cloud models, reusable templates, and chat grounded in your prompt library.",
+    tags: ["Kotlin", "Jetpack Compose", "On-device AI", "Prompt workflows"],
     live: "https://play.google.com/store/apps/details?id=com.akansh.promptvault",
     liveLabel: "Get on Google Play",
     headline: "Your prompt library, put to work.",
-    body: "PromptVault began with a personal problem: keeping useful prompts organized and making them easier to refine and reuse. I built the Android application end-to-end, focusing on offline-first usage, clean architecture, and usability. It also became a place to explore prompt templates and AI-agent workflows.",
+    body: "PromptVault began with a personal problem: useful prompts were easy to lose and hard to reuse. I built the Android app end-to-end to bring prompt organization, AI-assisted writing, and execution into one workspace. It has reached 2K+ downloads on Google Play, with a local-first library at the center of the experience.",
     features: [
-      "Offline-first prompt organization and reuse",
-      "Android interface built with Kotlin and Jetpack Compose",
-      "AI Prompt Creator and access through PromptVault Web",
-      "Chat with RAG support for working with an existing prompt library",
+      "A built-in AI prompt generator that turns ideas into reusable templates",
+      "On-device AI for refining and running prompts locally",
+      "Text and JSON templates with variables and live previews",
+      "Collections, tags, favorites, and smart search for a growing library",
+      "Cloud AI chat with retrieval from saved prompts",
+      "A browser companion, optional sync, and encrypted backups",
+    ],
+    note: "PromptVault is a closed-source Android application, built with Kotlin and Jetpack Compose. Download it on Google Play.",
+    sections: [
+      {
+        title: "AI that runs on your device",
+        body: "On-device models let you generate titles and descriptions, improve wording, and run prompts locally. Choose a model from the built-in catalog or import a compatible model. The core prompt library also works without signing in, so saving and organizing your work does not depend on a cloud connection.",
+      },
+      {
+        title: "An idea in. A reusable prompt out.",
+        body: "The built-in AI prompt generator, AI Prompt Creator, turns a short brief into a prompt you can edit and save. It suggests variables and defaults to make the result reusable for different inputs. AI assistance in the editor helps write and optimize the body, title, and description, while live previews show the finished prompt before you copy or run it.",
+      },
+      {
+        title: "Chat with your prompt library",
+        body: "Test saved prompts in conversations with their own model and instructions, and follow responses as they stream. Prompts RAG retrieves relevant prompts from your library and surfaces them in assistant replies. Its search embeddings stay on your device; the chat workflow uses a supported cloud model. AI Prompt Creator and cloud chat require sign-in and a configured Cloud Ollama account, and retrieval also needs the local embedding model.",
+      },
+      {
+        title: "Keep useful work within reach",
+        body: "Collections, tags, favorites, and smart search make a growing library easier to navigate. PromptVault Web brings that library to another device's browser over the same Wi-Fi or hotspot, with password protection and read-only access options. Optional cloud sync and encrypted local or Google Drive backups help preserve your work. Web hosting and cloud features require leaving the app's offline mode.",
+        links: [
+          { label: "Get PromptVault on Google Play", href: "https://play.google.com/store/apps/details?id=com.akansh.promptvault" },
+        ],
+      },
     ],
   },
   {
@@ -66,21 +90,42 @@ export const projects = [
     kind: "Local file sharing",
     description:
       "Files from here to there. A private, open-source sharing app that connects your devices over a local network, even without the internet.",
-    tags: ["Android", "Local networks", "Open source"],
-    github: "https://github.com/akanshSirohi/ShareX",
-    live: "https://f-droid.org/en/packages/com.akansh.fileserversuit/",
-    liveLabel: "Get on F-Droid",
+    tags: ["Android", "Local networks", "Open source", "Plugins"],
+    github: "https://github.com/akanshSirohi/shareX",
+    live: "https://play.google.com/store/apps/details?id=com.akansh.sharex",
+    liveLabel: "Get on Google Play",
     headline: "File sharing, simplified.",
-    body: "ShareX turns an Android device into a local file server with a web interface. Other devices can send and receive files through their browsers, without needing the same app. It works across Windows, macOS, Linux, Android, and iPhone.",
+    body: "ShareX turns an Android device into a local file server with a web interface. Other devices can send and receive files through their browsers, without needing the same app. Share a folder or selected files, preview downloads, and follow live transfer progress over Wi-Fi or a hotspot. It works across Windows, macOS, Linux, Android, and iPhone.",
     features: [
-      "Offline transfers over Wi-Fi or a local network",
-      "Private sharing and remembered authorized devices",
-      "Parallel file transfers, transfer history, and real-time logs",
-      "Custom ports, file restrictions, and 13 interface themes",
+      "Share over Wi-Fi or a hotspot without internet access",
+      "Share a folder or choose individual files in Private mode",
+      "Browse, preview, upload, download, and manage files in a browser",
+      "Approve browser access, remember trusted browsers, and revoke access",
+      "Scan connection QR codes and track transfer progress, speeds, and history",
+      "Configure HTTPS, sharing ports, hidden files, themes, and file modification restrictions",
+      "Install plugins from the Store or ZIP files and manage them in the app",
+    ],
+    sections: [
+      {
+        title: "Download ShareX",
+        body: "Get ShareX on Google Play, or visit GitHub for downloads and source code. Send files between nearby devices without cables, browse shared files from a web browser, and control access with browser approvals and Private mode. Local transfers work offline; online features such as the plugin Store use internet access.",
+        links: [
+          { label: "Get on Google Play", href: "https://play.google.com/store/apps/details?id=com.akansh.sharex" },
+          { label: "Download from GitHub", href: "https://github.com/akanshSirohi/shareX" },
+        ],
+      },
+      {
+        title: "Build plugins with SharexSDK",
+        body: "ShareX has its own plugin ecosystem, open to anyone who wants to collaborate on plugin development. SharexSDK is a JavaScript SDK for WebSocket messaging, connected browser information, and persistent JSON storage. Enable Plugin development in ShareX to connect a plugin running on your computer, then package it as a ZIP for installation. Explore the SDK and plugin development repository to build new capabilities or contribute improvements.",
+        links: [
+          { label: "Plugin development & SharexSDK", href: "https://github.com/akanshSirohi/SharexSDK" },
+        ],
+      },
     ],
   },
   {
     slug: "dezk",
+    hidden: true,
     title: "Dezk",
     category: "Applications",
     kind: "Your phone. Your PC remote.",
@@ -173,4 +218,4 @@ export const projects = [
     ],
     note: "Professional work developed at Keyideas Infotech across multiple client jewelry storefronts.",
   },
-];
+].filter((project) => !project.hidden);

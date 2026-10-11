@@ -86,6 +86,26 @@ export default async function ProjectPage({ params }) {
             ))}
           </ul>
           {project.note && <p className="project-note">{project.note}</p>}
+          {project.sections?.map((section) => (
+            <section key={section.title}>
+              <h2>{section.title}</h2>
+              <p>{section.body}</p>
+              <div className="detail-links">
+                {section.links?.map((link) => (
+                  <a
+                    key={link.href}
+                    className="text-link"
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {link.label}
+                    <Arrow diagonal />
+                  </a>
+                ))}
+              </div>
+            </section>
+          ))}
           <Link href={`/projects/${next.slug}`} className="project-next">
             <span>
               <span className="mono">NEXT EXPLORATION</span>

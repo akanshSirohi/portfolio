@@ -706,6 +706,7 @@ img {
 }
 .visual-sharex {
   background: #dadfd1;
+  color: #24251f;
 }
 .share-diagram {
   position: absolute;
@@ -1391,6 +1392,9 @@ img {
   line-height: 1.15;
   letter-spacing: -0.035em;
   margin-bottom: 24px;
+}
+.detail-content > section {
+  margin-top: 48px;
 }
 .detail-content p {
   font-size: 16px;
