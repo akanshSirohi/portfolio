@@ -1284,7 +1284,7 @@ img {
 .contact-title > span {
   color: #f5d3bf;
 }
-.contact-title > svg {
+.contact-title > .contact-arrow {
   position: absolute;
   right: 4%;
   top: 32%;
@@ -1293,7 +1293,7 @@ img {
   stroke-width: 1;
   transition: transform 0.4s;
 }
-.contact-title:hover > svg {
+.contact-arrow:hover > svg {
   transform: translate(8px, -8px);
 }
 .footer-bottom {
@@ -1604,7 +1604,7 @@ img {
   .footer-bottom > .mono {
     font-size: 7px;
   }
-  .contact-title > svg {
+  .contact-title > .contact-arrow {
     width: 95px;
     height: 95px;
   }
@@ -2011,7 +2011,7 @@ img {
     font-size: clamp(57px, 12vw, 93px);
     padding: 45px 0;
   }
-  .contact-title > svg {
+  .contact-title > .contact-arrow {
     width: 50px;
     height: 50px;
     right: 0;
@@ -2138,7 +2138,7 @@ img {
   .experience-row h3 {
     font-size: 16px;
   }
-  .contact-title > svg {
+  .contact-title > .contact-arrow {
     width: 40px;
     height: 40px;
   }
@@ -2559,68 +2559,6 @@ body {
 .site-header {
   gap: 30px;
 }
-.cursor-reticle {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 0;
-  height: 0;
-  z-index: 80;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.15s;
-}
-.cursor-reticle i {
-  position: absolute;
-  width: 27px;
-  height: 27px;
-  left: -13.5px;
-  top: -13.5px;
-  border: 1px solid var(--accent);
-  opacity: 0.65;
-  clip-path: polygon(
-    0 0,
-    30% 0,
-    30% 8%,
-    8% 8%,
-    8% 30%,
-    0 30%,
-    0 0,
-    100% 0,
-    100% 30%,
-    92% 30%,
-    92% 8%,
-    70% 8%,
-    70% 0,
-    100% 0,
-    100% 100%,
-    70% 100%,
-    70% 92%,
-    92% 92%,
-    92% 70%,
-    100% 70%,
-    100% 100%,
-    0 100%,
-    0 70%,
-    8% 70%,
-    8% 92%,
-    30% 92%,
-    30% 100%,
-    0 100%
-  );
-  transition:
-    width 0.2s,
-    height 0.2s,
-    left 0.2s,
-    top 0.2s;
-}
-.cursor-reticle[data-active="true"] i {
-  width: 40px;
-  height: 40px;
-  left: -20px;
-  top: -20px;
-  opacity: 1;
-}
 .sr-only {
   position: absolute;
   width: 1px;
@@ -3015,11 +2953,6 @@ body {
   }
   .catalog-number {
     font-size: 76px;
-  }
-}
-@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
-  .cursor-reticle {
-    display: none;
   }
 }
 body:has(.command-dialog[open]) {

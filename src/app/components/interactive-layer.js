@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { projects } from "../data/projects";
 import { Arrow } from "./icons";
+import TargetCursor from "./react-bits/TargetCursor";
 
 export function CommandButton() {
   return (
@@ -111,77 +112,6 @@ export function BinaryField({ paused }) {
     };
   }, []);
   return <canvas ref={canvas} className="binary-field" aria-hidden="true" />;
-}
-
-function CursorReticle() {
-  const cursor = useRef(null);
-  useEffect(() => {
-    const query = window.matchMedia(
-      "(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)",
-    );
-    let teardown = () => {};
-    const setup = () => {
-      teardown();
-      const node = cursor.current;
-      if (!query.matches) {
-        node.style.opacity = "0";
-        return;
-      }
-      let frame = 0,
-        x = 0,
-        y = 0,
-        targetX = 0,
-        targetY = 0,
-        initialized = false;
-      const tick = () => {
-        x += (targetX - x) * 0.2;
-        y += (targetY - y) * 0.2;
-        node.style.transform = `translate3d(${x}px,${y}px,0)`;
-        if (Math.abs(targetX - x) + Math.abs(targetY - y) > 0.15)
-          frame = requestAnimationFrame(tick);
-        else frame = 0;
-      };
-      const move = (event) => {
-        if (event.pointerType !== "mouse") return;
-        targetX = event.clientX;
-        targetY = event.clientY;
-        if (!initialized) {
-          x = targetX;
-          y = targetY;
-          initialized = true;
-        }
-        node.style.opacity = "1";
-        node.dataset.active = Boolean(
-          event.target.closest("a,button,input,textarea,summary"),
-        );
-        if (!frame) frame = requestAnimationFrame(tick);
-      };
-      const hide = () => {
-        node.style.opacity = "0";
-      };
-      window.addEventListener("pointermove", move);
-      document.addEventListener("pointerleave", hide);
-      window.addEventListener("blur", hide);
-      teardown = () => {
-        cancelAnimationFrame(frame);
-        window.removeEventListener("pointermove", move);
-        document.removeEventListener("pointerleave", hide);
-        window.removeEventListener("blur", hide);
-        node.style.opacity = "0";
-      };
-    };
-    setup();
-    query.addEventListener("change", setup);
-    return () => {
-      teardown();
-      query.removeEventListener("change", setup);
-    };
-  }, []);
-  return (
-    <div ref={cursor} className="cursor-reticle" aria-hidden="true">
-      <i />
-    </div>
-  );
 }
 
 function CommandPalette() {
@@ -372,7 +302,17 @@ function CommandPalette() {
 export function InteractiveLayer() {
   return (
     <>
-      <CursorReticle />
+      <TargetCursor
+        targetSelector='a[href], button:not(:disabled), [role="button"], .project-pixels'
+        spinDuration={2}
+        hoverDuration={0.2}
+        size={30}
+        cornerSize={10}
+        thickness={2}
+        padding={5}
+        dotSize={3}
+        showLabel={false}
+      />
       <CommandPalette />
     </>
   );

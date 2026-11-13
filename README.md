@@ -80,6 +80,7 @@ The supplied résumé is stored unchanged at `public/Akansh-Sirohi-Resume.pdf`. 
 
 The portfolio uses source components fetched from the official [React Bits](https://reactbits.dev/) JavaScript/CSS registry. Components live in `src/app/components/react-bits/`; the upstream license is preserved in `public/licenses/react-bits.txt`.
 
+- **TargetCursor** replaces the native pointer on fine mouse devices with rotating brackets that snap around links, buttons, and project artwork. Touch, reduced motion, and the command dialog retain the native cursor.
 - **TechText** renders both name lines with a pixel assembly entrance, automatic outline sweep, pointer interaction, selection frames, and glyph measurement labels. Local Cal Sans supplies the glyph shapes. The semantic heading and static fallback remain ordinary HTML.
 - **TextType** types and deletes the hero's rotating roles with a blinking caret.
 - **LightPillar** renders the animated violet light sculpture using WebGL2. It loads only when motion is allowed and pauses off screen, in hidden tabs, and when reduced motion is requested. A CSS glow remains available without WebGL.
@@ -93,7 +94,7 @@ Local adaptations preserve static HTML, support live reduced-motion changes, add
 
 `src/app/components/showcase.js` contains the hero, project collection, and local project posters. `src/app/portfolio-refresh.css` defines the dark violet design, readable metadata, responsive typography, and unclipped display text. Name Lab is no longer rendered. The portfolio uses a consistent dark theme; theme and pause controls have been removed.
 
-Press Ctrl/⌘ K or `/`, or use the header button, to search projects, technologies, pages, or theme commands. Arrow keys and Enter navigate results; Escape closes the palette. No search service or backend is involved.
+Press Ctrl/⌘ K or `/`, or use the header button, to search projects, technologies, or pages. Arrow keys and Enter navigate results; Escape closes the palette. No search service or backend is involved.
 
 ## Motion and accessibility
 

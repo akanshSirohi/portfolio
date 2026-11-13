@@ -94,7 +94,7 @@ export function ImpactWork({ standalone = false }) {
           </SpotlightCard>
         </article>;
       })}</div>
-      <a className="all-work-link" href="https://github.com/akanshSirohi" target="_blank" rel="noopener noreferrer"><ScrollFloat containerClassName="github-float" textClassName="github-float-text" effect="wave" distance={25} stretch={1.15} ease="power2.out" scrollStart="top bottom" scrollEnd="bottom 75%">Always building.</ScrollFloat><span>More on GitHub <Arrow diagonal /></span></a>
+      <div className="all-work-link"><ScrollFloat containerClassName="github-float" textClassName="github-float-text" effect="wave" distance={25} stretch={1.15} ease="power2.out" scrollStart="top bottom" scrollEnd="bottom 75%">Always building.</ScrollFloat><a className="all-work-cta" href="https://github.com/akanshSirohi" target="_blank" rel="noopener noreferrer">More on GitHub <Arrow diagonal /></a></div>
     </section>
   );
 }

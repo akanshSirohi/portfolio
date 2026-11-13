@@ -87,17 +87,20 @@ export function Footer() {
         </p>
         <p className="mono">Have an idea? A curious question?</p>
       </div>
-      <a
-        className="contact-title"
-        href="https://www.linkedin.com/in/akansh-sirohi"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <div className="contact-title">
         <SplitText text="Let’s build" tag="span" className="contact-first" textAlign="left" splitType="words" delay={100} duration={0.85} effect="blur" />
         <br />
         <span><SplitText text="something." tag="span" textAlign="left" splitType="words" duration={1.1} effect="blur" /></span>
-        <Arrow diagonal />
-      </a>
+        <a
+          className="contact-arrow"
+          href="https://www.linkedin.com/in/akansh-sirohi"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Start a conversation with Akansh on LinkedIn"
+        >
+          <Arrow diagonal />
+        </a>
+      </div>
       <div className="footer-bottom">
         <Link className="footer-name" href="/">
           Akansh Sirohi <Asterisk />
