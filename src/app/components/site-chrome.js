@@ -4,7 +4,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Arrow, Asterisk } from "./icons";
-import { ThemeToggle, CommandButton } from "./interactive-layer";
+import { CommandButton } from "./interactive-layer";
+import SplitText from "./react-bits/SplitText";
 
 const navigation = [
   ["Work", "work"],
@@ -71,7 +72,6 @@ export function Header() {
         </nav>
         <div className="header-controls">
           <CommandButton />
-          <ThemeToggle />
         </div>
       </header>
     </>
@@ -93,9 +93,9 @@ export function Footer() {
         target="_blank"
         rel="noopener noreferrer"
       >
-        Let’s build
+        <SplitText text="Let’s build" tag="span" className="contact-first" textAlign="left" splitType="words" delay={100} duration={0.85} effect="blur" />
         <br />
-        <span>something.</span>
+        <span><SplitText text="something." tag="span" textAlign="left" splitType="words" duration={1.1} effect="blur" /></span>
         <Arrow diagonal />
       </a>
       <div className="footer-bottom">

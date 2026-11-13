@@ -4,14 +4,15 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { projects } from "../data/projects";
 import { posts } from "../data/posts";
 import data from "../data/DB.json";
 import { Arrow, Asterisk } from "./icons";
 import { CodePattern, ProjectVisual } from "./project-visual";
-import { NameLab } from "./name-lab";
-import { BinaryField } from "./interactive-layer";
 import { DecodeLabel } from "./decode-label";
+import ScrollReveal from "./react-bits/ScrollReveal";
+import { MotionRibbon } from "./motion-system";
+import { ImpactHero as Hero, ImpactWork as Work } from "./showcase";
+export { Work };
 
 function SectionHeading({
   number,
@@ -27,271 +28,10 @@ function SectionHeading({
         <p className="eyebrow">
           <span>{number} /</span> <DecodeLabel>{label}</DecodeLabel>
         </p>
-        <Heading>{title}</Heading>
+        <Heading className="section-title">{title}</Heading>
       </div>
       {children}
     </div>
-  );
-}
-
-function Hero() {
-  return (
-    <section className="hero" aria-labelledby="hero-title">
-      <BinaryField />
-      <div className="hero-intro">
-        <p className="eyebrow">
-          <span className="status-dot" /> Akansh Sirohi — Software developer
-        </p>
-        <span className="mono hero-location">
-          BASED IN INDIA · BUILDING EVERYWHERE
-        </span>
-      </div>
-      <div className="hero-stage">
-        <h1 id="hero-title">
-          <span className="hero-line">Building</span>
-          <span className="hero-line">ideas into</span>
-          <span className="hero-line hero-code">
-            software<span className="hero-period">.</span>
-            <svg
-              className="code-underline"
-              viewBox="0 0 600 25"
-              preserveAspectRatio="none"
-              aria-hidden="true"
-            >
-              <path
-                d="M3 18Q280 -5 590 12"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="5"
-                strokeLinecap="round"
-              />
-            </svg>
-          </span>
-        </h1>
-        <NameLab />
-      </div>
-      <div className="hero-bottom">
-        <p>
-          Backend systems. Web applications. Android.
-          <br className="desktop-break" /> Useful software, built with a curious
-          mind.
-        </p>
-        <a className="button button-dark" href="#work">
-          Explore my work <Arrow diagonal />
-        </a>
-        <a className="scroll-cue mono" href="#work">
-          SCROLL TO DISCOVER <span>↓</span>
-        </a>
-      </div>
-    </section>
-  );
-}
-
-export function Work({ standalone = false }) {
-  const [filter, setFilter] = useState("All");
-  const scope = useRef(null);
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    const media = gsap.matchMedia();
-    media.add("(prefers-reduced-motion: no-preference)", () => {
-      const context = gsap.context(() => {
-        scope.current
-          .querySelectorAll(".project-visual-link")
-          .forEach((link) => {
-            const visual = link.querySelector(".project-visual");
-            gsap.fromTo(
-              visual,
-              { scale: 1.08, y: 10 },
-              {
-                scale: 1.02,
-                y: 0,
-                ease: "none",
-                scrollTrigger: {
-                  trigger: link,
-                  start: "top bottom",
-                  end: "bottom center",
-                  scrub: 0.8,
-                },
-              },
-            );
-          });
-      }, scope);
-      return () => context.revert();
-    });
-    media.add(
-      "(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)",
-      () => {
-        const cleanups = [];
-        const context = gsap.context(() => {
-          scope.current
-            .querySelectorAll(".project-visual-link")
-            .forEach((link) => {
-              const visual = link.querySelector(".project-visual");
-              gsap.set(visual, { transformPerspective: 1000 });
-              const x = gsap.quickTo(visual, "rotationX", {
-                duration: 0.7,
-                ease: "power3.out",
-              });
-              const y = gsap.quickTo(visual, "rotationY", {
-                duration: 0.7,
-                ease: "power3.out",
-              });
-              const move = (event) => {
-                const bounds = link.getBoundingClientRect();
-                x(-((event.clientY - bounds.top) / bounds.height - 0.5) * 6);
-                y(((event.clientX - bounds.left) / bounds.width - 0.5) * 6);
-                link.style.setProperty(
-                  "--spot-x",
-                  `${event.clientX - bounds.left}px`,
-                );
-                link.style.setProperty(
-                  "--spot-y",
-                  `${event.clientY - bounds.top}px`,
-                );
-              };
-              const leave = () => {
-                x(0);
-                y(0);
-              };
-              link.addEventListener("pointermove", move);
-              link.addEventListener("pointerleave", leave);
-              cleanups.push(() => {
-                link.removeEventListener("pointermove", move);
-                link.removeEventListener("pointerleave", leave);
-                link.style.removeProperty("--spot-x");
-                link.style.removeProperty("--spot-y");
-              });
-            });
-        }, scope);
-        return () => {
-          cleanups.forEach((cleanup) => cleanup());
-          context.revert();
-        };
-      },
-    );
-    return () => media.revert();
-  }, [filter]);
-  const filtered = projects.filter(
-    (project) => filter === "All" || project.category === filter,
-  );
-  return (
-    <section
-      ref={scope}
-      className={`work section-pad ${standalone ? "standalone-section" : ""}`}
-      id="work"
-      aria-labelledby="work-title"
-    >
-      <SectionHeading
-        number="01"
-        standalone={standalone}
-        label="Selected work"
-        title={
-          <span id="work-title">
-            Projects, shipped<span className="accent">.</span>
-          </span>
-        }
-      >
-        <p className="section-aside">
-          Open-source libraries.
-          <br />
-          Applications that solve real problems.
-        </p>
-      </SectionHeading>
-      <div className="work-toolbar">
-        <div className="filters" role="group" aria-label="Filter projects">
-          {["All", "Applications", "Libraries", "Client work"].map((value) => (
-            <button
-              key={value}
-              aria-pressed={filter === value}
-              onClick={() => setFilter(value)}
-            >
-              {value}
-              {value === "All" && (
-                <sup>{String(projects.length).padStart(2, "0")}</sup>
-              )}
-            </button>
-          ))}
-        </div>
-        <span className="mono" aria-live="polite">
-          {String(filtered.length).padStart(2, "0")} PROJECTS / BUILT WITH
-          INTENT
-        </span>
-      </div>
-      <div className="project-grid">
-        {filtered.map((project) => (
-          <article
-            key={project.slug}
-            className={`project-item ${project.slug === "quadqr" ? "featured-project" : ""}`}
-          >
-            <Link
-              href={`/projects/${project.slug}`}
-              className="project-visual-link"
-              aria-label={`Explore ${project.title}`}
-            >
-              <ProjectVisual slug={project.slug} />
-              <span className="project-open">
-                <Arrow diagonal />
-              </span>
-            </Link>
-            <div className="project-info">
-              <div className="project-meta mono">
-                <span>
-                  {String(projects.indexOf(project) + 1).padStart(2, "0")} /{" "}
-                  {project.kind}
-                </span>
-                {project.slug === "quadqr" && (
-                  <span className="featured-label">FEATURED EXPERIMENT</span>
-                )}
-              </div>
-              <Link
-                href={`/projects/${project.slug}`}
-                className="project-title"
-              >
-                <h3>{project.title}</h3>
-                <Arrow diagonal />
-              </Link>
-              <p>{project.description}</p>
-              <div className="project-tags mono">
-                {project.tags.map((tag) => (
-                  <span key={tag}>{tag}</span>
-                ))}
-              </div>
-              <div className="project-card-links mono">
-                {project.github && (
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Source code <Arrow diagonal />
-                  </a>
-                )}
-                {project.live && (
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {project.liveLabel} <Arrow diagonal />
-                  </a>
-                )}
-              </div>
-            </div>
-          </article>
-        ))}
-      </div>
-      <a
-        className="text-link github-all"
-        href="https://github.com/akanshSirohi"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        There’s always something else in the works.{" "}
-        <span>
-          Explore my GitHub <Arrow diagonal />
-        </span>
-      </a>
-    </section>
   );
 }
 
@@ -318,10 +58,10 @@ export function About({ standalone = false }) {
           <span>Still curious.</span>
         </Heading>
         <div className="about-copy">
-          <p className="about-lead">
+          <ScrollReveal tag="p" containerClassName="about-lead" textClassName="about-reveal-text" enableBlur={false} baseOpacity={0.32} baseRotation={0} wordAnimationEnd="bottom 65%">
             Hello, I’m Akansh. I like understanding how things work. Then asking
             how they could work differently.
-          </p>
+          </ScrollReveal>
           <p>
             I’m a software engineer working across backend systems, web
             applications, and Android. My own projects are where curiosity gets
@@ -677,38 +417,22 @@ export function Portfolio() {
     const media = gsap.matchMedia();
     media.add("(prefers-reduced-motion: no-preference)", () => {
       const context = gsap.context(() => {
-        gsap.from(".hero-line", {
-          y: 44,
+        gsap.from(".impact-intro, .impact-bottom", {
+          y: 24,
           opacity: 0,
-          duration: 1,
-          stagger: 0.1,
+          duration: 0.9,
+          stagger: 0.12,
+          delay: 0.3,
           ease: "power3.out",
         });
-        gsap.from(".hero-art", {
-          rotation: -12,
-          scale: 0.9,
-          opacity: 0,
-          duration: 1.5,
-          ease: "power2.out",
-        });
-        gsap.to(".hero-line", {
-          x: (index) => -(index + 1) * (window.innerWidth < 760 ? 12 : 28),
+        gsap.to(".impact-name", {
+          y: -35,
           ease: "none",
           scrollTrigger: {
             trigger: ".hero",
             start: "top top",
             end: "bottom top",
             scrub: 0.8,
-          },
-        });
-        gsap.to(".manifesto-strip svg", {
-          rotation: 180,
-          ease: "none",
-          scrollTrigger: {
-            trigger: ".manifesto-strip",
-            start: "top bottom",
-            end: "bottom top",
-            scrub: 0.7,
           },
         });
         gsap.fromTo(
@@ -725,17 +449,9 @@ export function Portfolio() {
             },
           },
         );
-        gsap.fromTo(
-          ".code-underline",
-          { scaleX: 0.3 },
-          {
-            scaleX: 1,
-            transformOrigin: "left center",
-            duration: 1.3,
-            delay: 0.6,
-            ease: "power3.out",
-          },
-        );
+        gsap.utils.toArray(".section-title").forEach((title) => {
+          gsap.from(title, { y: 28, opacity: 0, duration: 0.8, ease: "power3.out", scrollTrigger: { trigger: title, start: "top 92%", toggleActions: "play none none reverse" } });
+        });
       }, scope);
       return () => context.revert();
     });
@@ -744,14 +460,7 @@ export function Portfolio() {
   return (
     <div ref={scope}>
       <Hero />
-      <div className="manifesto-strip mono">
-        <span>BACKEND SYSTEMS</span>
-        <Asterisk />
-        <span>ANDROID APPLICATIONS</span>
-        <Asterisk />
-        <span>OPEN-SOURCE TOOLS</span>
-        <Asterisk />
-      </div>
+      <MotionRibbon />
       <Work />
       <About />
       <Experience />

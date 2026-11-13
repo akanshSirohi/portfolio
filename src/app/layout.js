@@ -1,10 +1,18 @@
 import "./globals.css";
+import "./portfolio-refresh.css";
 import localFont from "next/font/local";
 import { InteractiveLayer } from "./components/interactive-layer";
 
 const display = localFont({
   src: "../../public/fonts/CalSans-SemiBold.ttf",
   variable: "--font-display",
+  display: "swap",
+});
+
+const body = localFont({
+  src: "../../public/fonts/Manrope-Latin-Variable.woff2",
+  variable: "--font-body",
+  weight: "200 800",
   display: "swap",
 });
 
@@ -37,14 +45,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={display.variable} suppressHydrationWarning>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `try{var t=localStorage.getItem('portfolio-theme');document.documentElement.dataset.theme=t==='light'||t==='dark'?t:matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'}catch(e){document.documentElement.dataset.theme=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'}`,
-          }}
-        />
-      </head>
+    <html lang="en" className={`${display.variable} ${body.variable}`} data-theme="dark">
       <body>
         {children}
         <InteractiveLayer />

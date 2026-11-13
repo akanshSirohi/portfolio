@@ -5,65 +5,6 @@ import { useRouter } from "next/navigation";
 import { projects } from "../data/projects";
 import { Arrow } from "./icons";
 
-export function toggleTheme() {
-  const next =
-    document.documentElement.dataset.theme === "dark" ? "light" : "dark";
-  document.documentElement.dataset.theme = next;
-  try {
-    localStorage.setItem("portfolio-theme", next);
-  } catch {}
-  window.dispatchEvent(new Event("portfolio-theme"));
-}
-
-export function ThemeToggle() {
-  const [theme, setTheme] = useState(null);
-  useEffect(() => {
-    const sync = () =>
-      setTheme(document.documentElement.dataset.theme || "light");
-    const media = window.matchMedia("(prefers-color-scheme: dark)");
-    const system = () => {
-      let saved;
-      try {
-        saved = localStorage.getItem("portfolio-theme");
-      } catch {}
-      if (!saved) {
-        document.documentElement.dataset.theme = media.matches
-          ? "dark"
-          : "light";
-        sync();
-      }
-    };
-    sync();
-    window.addEventListener("portfolio-theme", sync);
-    media.addEventListener("change", system);
-    return () => {
-      window.removeEventListener("portfolio-theme", sync);
-      media.removeEventListener("change", system);
-    };
-  }, []);
-  return (
-    <button
-      className="theme-toggle"
-      onClick={toggleTheme}
-      aria-label="Toggle color theme"
-      title="Switch light / dark theme"
-    >
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <circle
-          cx="12"
-          cy="12"
-          r="7"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-        />
-        <path d="M12 5a7 7 0 0 1 0 14Z" fill="currentColor" />
-      </svg>
-      <span className="mono">{theme === "dark" ? "LIGHT" : "DARK"}</span>
-    </button>
-  );
-}
-
 export function CommandButton() {
   return (
     <button
@@ -267,12 +208,6 @@ function CommandPalette() {
       href: "/resume",
     },
     { title: "Let's talk", group: "Navigate", href: "/#contact" },
-    {
-      title: "Switch light / dark",
-      group: "Appearance",
-      terms: "theme",
-      action: toggleTheme,
-    },
   ];
   const results = commands.filter((item) =>
     `${item.title} ${item.group} ${item.terms || ""}`
@@ -282,8 +217,7 @@ function CommandPalette() {
   const activate = (item) => {
     if (!item) return;
     dialog.current.close();
-    if (item.action) item.action();
-    else router.push(item.href);
+    router.push(item.href);
   };
   useEffect(() => {
     const show = () => {
