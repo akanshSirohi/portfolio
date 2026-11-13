@@ -358,3 +358,31 @@ button,input,textarea { font-family:var(--body); }
 .contact-arrow > svg { width:100%; height:100%; transition:transform .3s; }
 .contact-arrow:hover > svg { transform:translate(5px,-5px); }
 @media(prefers-reduced-motion:reduce) { .contact-arrow > svg { transition:none; } }
+
+/* Atmospheric light remains behind the contact content and its link targets. */
+.site-footer,:root[data-theme="dark"] .site-footer {
+  position:relative;
+  isolation:isolate;
+  background:#11091e;
+  color:#f1ecfc;
+}
+.contact-backdrop {
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  overflow:hidden;
+  background:radial-gradient(ellipse at 75% 65%,#4b216d66,transparent 65%);
+}
+.contact-backdrop:after {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,#11091ec9,transparent 32%),linear-gradient(0deg,#11091e 0%,transparent 45%),linear-gradient(90deg,#11091eb8,transparent 85%);
+}
+.site-footer .contact-title > .contact-first { color:#f1ecfc; }
+.site-footer .contact-title { text-shadow:0 2px 24px #11091ed9; }
+.site-footer .contact-title > span { color:#cbb4ff; }
+.site-footer .contact-arrow { color:#e4d6ff; }
+.site-footer .footer-top .status-dot { background:#cbb4ff; }
+.site-footer .footer-bottom { border-color:#e4d6ff33; }

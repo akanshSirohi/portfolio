@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { Arrow, Asterisk } from "./icons";
 import { CommandButton } from "./interactive-layer";
 import SplitText from "./react-bits/SplitText";
+import { ContactBackdrop } from "./contact-backdrop";
 
 const navigation = [
   ["Work", "work"],
@@ -81,6 +82,7 @@ export function Header() {
 export function Footer() {
   return (
     <footer className="site-footer" id="contact">
+      <ContactBackdrop />
       <div className="footer-top">
         <p className="eyebrow">
           <span className="status-dot" /> A conversation starts something.
