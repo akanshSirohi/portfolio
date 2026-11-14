@@ -125,15 +125,15 @@ export const projects = [
     slug: "sharex",
     title: "ShareX",
     category: "Applications",
-    kind: "Local file sharing",
+    kind: "Standalone Android file sharing",
     description:
       "Files from here to there. A private, open-source sharing app that connects your devices over a local network, even without the internet.",
     tags: ["Android", "Local networks", "Open source", "Plugins"],
     github: "https://github.com/akanshSirohi/shareX",
-    live: "https://play.google.com/store/apps/details?id=com.akansh.sharex",
-    liveLabel: "Get on Google Play",
+    live: "https://sharex.akanshsirohi.dev/",
+    liveLabel: "Visit ShareX website",
     headline: "File sharing, simplified.",
-    body: "ShareX turns an Android device into a local file server with a web interface. Other devices can send and receive files through their browsers, without needing the same app. Share a folder or selected files, preview downloads, and follow live transfer progress over Wi-Fi or a hotspot. It works across Windows, macOS, Linux, Android, and iPhone.",
+    body: "ShareX Android turns your phone into a local file server. Nearby phones, tablets, and computers can send and receive files in their browsers without installing an app. Share a folder or selected files, preview downloads, and follow live transfer progress over Wi-Fi or a hotspot. Android runs independently; the separate ShareX Desktop app brings the same browser-based workflow to your computer.",
     features: [
       "Share over Wi-Fi or a hotspot without internet access",
       "Share a folder or choose individual files in Private mode",
@@ -146,10 +146,12 @@ export const projects = [
     sections: [
       {
         title: "Download ShareX",
-        body: "Get ShareX on Google Play, or visit GitHub for downloads and source code. Send files between nearby devices without cables, browse shared files from a web browser, and control access with browser approvals and Private mode. Local transfers work offline; online features such as the plugin Store use internet access.",
+        body: "The new ShareX website brings both apps together. Choose Android or Desktop for the device sharing files; neither app requires the other. Receiving devices connect in a browser. Local transfers work offline, while downloads and the plugin Store use internet access.",
         links: [
+          { label: "Explore the ShareX website", href: "https://sharex.akanshsirohi.dev/" },
           { label: "Get on Google Play", href: "https://play.google.com/store/apps/details?id=com.akansh.sharex" },
-          { label: "Download from GitHub", href: "https://github.com/akanshSirohi/shareX" },
+          { label: "Download Android APK", href: "https://github.com/akanshSirohi/ShareX/releases/latest" },
+          { label: "Get ShareX Desktop", href: "https://github.com/akanshSirohi/ShareX-Desktop/releases/latest" },
         ],
       },
       {
@@ -157,6 +159,49 @@ export const projects = [
         body: "ShareX has its own plugin ecosystem, open to anyone who wants to collaborate on plugin development. SharexSDK is a JavaScript SDK for WebSocket messaging, connected browser information, and persistent JSON storage. Enable Plugin development in ShareX to connect a plugin running on your computer, then package it as a ZIP for installation. Explore the SDK and plugin development repository to build new capabilities or contribute improvements.",
         links: [
           { label: "Plugin development & SharexSDK", href: "https://github.com/akanshSirohi/SharexSDK" },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "sharex-desktop",
+    title: "ShareX Desktop",
+    category: "Applications",
+    kind: "Native desktop file sharing",
+    description:
+      "Your computer, ready to share. A standalone desktop app for local file transfers, with a native workspace and a browser on the receiving side.",
+    tags: ["Tauri 2", "Rust", "React", "TypeScript", "Windows", "Open source"],
+    github: "https://github.com/akanshSirohi/ShareX-Desktop",
+    live: "https://sharex.akanshsirohi.dev/",
+    liveLabel: "Visit ShareX website",
+    headline: "One desktop app. Any nearby browser.",
+    body: "ShareX Desktop brings local sharing to a native Tauri 2 app, pairing a Rust sharing server with a React and TypeScript interface. Choose a folder, a drive, or individual files, then let nearby devices connect through their browsers. It runs independently of ShareX Android, and file transfers stay on your local network without an internet connection.",
+    features: [
+      "Share folders, drives, or selected files from a desktop workspace",
+      "Connect receiving devices through a browser or QR code, without a companion app",
+      "Approve browsers, remember trusted devices, and configure passwords and session expiry",
+      "Read-only access by default, with optional uploads and file management",
+      "Browse, search, preview, and track transfer history, progress, and speeds",
+      "Install portal plugins from the Store or ZIP files, with separate plugin approvals",
+      "Native tray controls, keyboard search, and configurable portal themes",
+    ],
+    note: "Windows 10/11 x64 is the primary tested desktop platform. macOS and Linux packages are experimental and have not yet been validated on native hardware.",
+    sections: [
+      {
+        title: "Get ShareX Desktop",
+        body: "Visit the ShareX website for a product tour and platform information, or choose an installer from the latest GitHub release. Android and Desktop are separate hosts: install either one on the sharing device, then connect from a browser on the same Wi-Fi network or hotspot.",
+        links: [
+          { label: "Download desktop installers", href: "https://github.com/akanshSirohi/ShareX-Desktop/releases/latest" },
+          { label: "Visit ShareX website", href: "https://sharex.akanshsirohi.dev/" },
+          { label: "Desktop setup guide", href: "https://github.com/akanshSirohi/ShareX-Desktop#start-sharing" },
+        ],
+      },
+      {
+        title: "Open from interface to server",
+        body: "The desktop interface, Rust server, and adapted browser portal are open source under AGPL-3.0-or-later. The project includes native packaging and a plugin system with messaging and storage, extending the original Android sharing workflow to desktop computers.",
+        links: [
+          { label: "Explore the desktop source", href: "https://github.com/akanshSirohi/ShareX-Desktop" },
+          { label: "Explore the Android app", href: "https://github.com/akanshSirohi/ShareX" },
         ],
       },
     ],

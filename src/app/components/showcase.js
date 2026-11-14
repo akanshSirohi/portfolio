@@ -6,7 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { projects } from "../data/projects";
 import { Arrow } from "./icons";
-import { CodePattern } from "./project-visual";
+import { CodePattern, ShareXAndroidArtwork, ShareXDesktopArtwork } from "./project-visual";
 import { HeroBackdrop } from "./motion-system";
 import TechText from "./react-bits/TechText";
 import TextType from "./react-bits/TextType";
@@ -42,7 +42,7 @@ export function ImpactHero() {
         </div>
       </div>
       <div className="impact-bottom">
-        <p>Backend systems. Android apps. Open-source ideas.<br />A curious mind, making things that matter.</p>
+        <p>Backend systems. Desktop & Android apps.<br />A curious mind, making things that matter.</p>
         <div className="impact-actions"><Magnet padding={50} magnetStrength={4} maxOffset={14}><a href="#work" className="button impact-primary">Discover my work <Arrow diagonal /></a></Magnet><a href="https://github.com/akanshSirohi" target="_blank" rel="noopener noreferrer" className="impact-github">GitHub <Arrow diagonal /></a></div>
       </div>
       <a className="impact-scroll mono" href="#work"><span>SCROLL TO EXPLORE</span><span className="scroll-orbit" aria-hidden="true">↓</span></a>
@@ -54,8 +54,8 @@ function ProjectPoster({ project, index }) {
   const code = ["quadqr", "qrsmith"].includes(project.slug);
   return (
     <div className={`project-poster poster-${project.slug}`} aria-hidden="true">
-      <span className="poster-kicker mono">EXPERIMENT / {String(index + 1).padStart(2,"0")}</span>
-      {code ? <div className="poster-code"><CodePattern color={project.slug === "quadqr"} /></div> : project.slug === "promptvault" ? <div className="prompt-sculpture"><div>Make room<br />for the next<br /><em>big idea.</em><span className="mono">PROMPTVAULT / OFFLINE FIRST</span></div><div /><div /></div> : project.slug === "sharex" ? <div className="transfer-sculpture"><span>↗</span><i /><span>↙</span><small className="mono">CONNECTED. NO INTERNET REQUIRED.</small></div> : project.slug === "quadqr-sdk" ? <div className="code-sculpture"><span>{"{ "}</span><b>build<br />beyond.</b><span>{" }"}</span><small className="mono">RUST / ANDROID / FLUTTER / WASM</small></div> : <div className="orb-sculpture"><i /><i /><i /><span>{project.slug === "diamond-catalog" ? "1M+" : project.slug === "jewelry-try-on" ? "3D" : "R&D"}</span></div>}
+      <span className="poster-kicker mono">{project.slug === "sharex-desktop" ? "DESKTOP RELEASE" : project.slug === "sharex" ? "ANDROID RELEASE" : "EXPERIMENT"} / {String(index + 1).padStart(2,"0")}</span>
+      {code ? <div className="poster-code"><CodePattern color={project.slug === "quadqr"} /></div> : project.slug === "promptvault" ? <div className="prompt-sculpture"><div>Make room<br />for the next<br /><em>big idea.</em><span className="mono">PROMPTVAULT / OFFLINE FIRST</span></div><div /><div /></div> : project.slug === "sharex-desktop" ? <ShareXDesktopArtwork /> : project.slug === "sharex" ? <ShareXAndroidArtwork /> : project.slug === "quadqr-sdk" ? <div className="code-sculpture"><span>{"{ "}</span><b>build<br />beyond.</b><span>{" }"}</span><small className="mono">RUST / ANDROID / FLUTTER / WASM</small></div> : <div className="orb-sculpture"><i /><i /><i /><span>{project.slug === "diamond-catalog" ? "1M+" : project.slug === "jewelry-try-on" ? "3D" : "R&D"}</span></div>}
       <span className="poster-bottom mono">{project.tags.slice(0,2).join(" / ").toUpperCase()}<span>↗</span></span>
     </div>
   );

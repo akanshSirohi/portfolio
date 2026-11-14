@@ -1,6 +1,7 @@
 import { Arrow } from "./icons";
+import Image from "next/image";
 
-// Decorative illustrations, not scannable codes or application screenshots.
+// Decorative matrix artwork, not a scannable code.
 export function CodePattern({ color = true, className = "" }) {
   const colors = color
     ? ["#f04c42", "#3dba7b", "#437cfa", "#fffdf2"]
@@ -72,6 +73,30 @@ export function CodePattern({ color = true, className = "" }) {
   );
 }
 
+export function ShareXAndroidArtwork() {
+  return (
+    <div className="sharex-android-artwork">
+      <div className="sharex-app-phone">
+        <Image src="/images/sharex-android.webp" alt="" width={540} height={1202} sizes="(max-width: 760px) 28vw, 18vw" />
+      </div>
+      <div className="sharex-app-message">
+        <span className="mono">SHAREX / ANDROID</span>
+        <strong>Share local.<br /><span>Skip the cloud.</span></strong>
+        <div className="sharex-app-connection"><i /><Arrow /><i /></div>
+        <span className="mono">ONE APP. ANY BROWSER.</span>
+      </div>
+    </div>
+  );
+}
+
+export function ShareXDesktopArtwork() {
+  return (
+    <div className="desktop-sharing-artwork">
+      <Image src="/images/sharex-desktop.webp" alt="" width={2880} height={1574} sizes="(max-width: 760px) 88vw, 48vw" />
+    </div>
+  );
+}
+
 export function ProjectVisual({ slug }) {
   return (
     <div className={`project-visual visual-${slug}`} aria-hidden="true">
@@ -140,36 +165,16 @@ export function ProjectVisual({ slug }) {
       )}
       {slug === "sharex" && (
         <>
-          <span className="visual-label mono">
-            LESS FRICTION. MORE CONNECTION.
-          </span>
-          <div className="share-diagram">
-            <div className="device device-phone">
-              <div className="device-content">
-                <span className="mono">ShareX</span>
-                <span className="file-icon">↗</span>
-                <span className="mono">ready to send</span>
-              </div>
-            </div>
-            <div className="transfer-line">
-              <span />
-              <Arrow />
-              <span />
-            </div>
-            <div className="device device-laptop">
-              <div className="device-content">
-                <span className="mono">192.168.1.4</span>
-                <div className="file-row">
-                  <span>↳</span>
-                  <span>ideas.zip</span>
-                  <b>✓</b>
-                </div>
-                <div className="transfer-progress" />
-                <span className="mono">all yours.</span>
-              </div>
-            </div>
-          </div>
-          <span className="visual-bottom mono">YOUR FILES / YOUR NETWORK</span>
+          <span className="visual-label mono">YOUR PHONE. THEIR BROWSER.</span>
+          <ShareXAndroidArtwork />
+          <span className="visual-bottom mono">DIRECT TRANSFERS / NO CLOUD DETOUR</span>
+        </>
+      )}
+      {slug === "sharex-desktop" && (
+        <>
+          <span className="visual-label mono">SHAREX DESKTOP / A STANDALONE HOST</span>
+          <ShareXDesktopArtwork />
+          <span className="visual-bottom mono">LOCAL FILES / NATIVE WORKSPACE</span>
         </>
       )}
       {slug === "dezk" && (

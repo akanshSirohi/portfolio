@@ -386,3 +386,64 @@ button,input,textarea { font-family:var(--body); }
 .site-footer .contact-arrow { color:#e4d6ff; }
 .site-footer .footer-top .status-dot { background:#cbb4ff; }
 .site-footer .footer-bottom { border-color:#e4d6ff33; }
+
+.poster-sharex-desktop,.visual-sharex-desktop {
+  background:radial-gradient(ellipse at 65% 25%,#34526a,transparent 75%),#122731;
+  color:#d8e8ff;
+}
+.visual-sharex-desktop { display:grid; place-items:center; }
+.desktop-sharing-artwork { width:90%; max-width:850px; position:relative; }
+.desktop-sharing-artwork img {
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius:10px;
+  border:1px solid #d9e7ff40;
+  box-shadow:14px 22px 45px #0005;
+  transform:perspective(1000px) rotateY(-8deg) rotateZ(-3deg);
+}
+@media(max-width:760px) {
+  .desktop-sharing-artwork { width:89%; }
+  .desktop-sharing-artwork img { border-radius:7px; }
+}
+
+.visual-sharex,.poster-sharex {
+  background:radial-gradient(ellipse at 30% 40%,#24624e88,transparent 65%),#0c2820;
+  color:#effaf4;
+}
+.visual-sharex :is(.visual-label,.visual-bottom) { color:#b5d9c8; }
+.sharex-android-artwork {
+  position:absolute;
+  inset:12% 7%;
+  display:grid;
+  grid-template-columns:0.95fr 1.1fr;
+  align-items:center;
+  gap:6%;
+}
+.sharex-app-phone {
+  height:100%;
+  aspect-ratio:540/1202;
+  justify-self:center;
+  border:5px solid #09140f;
+  border-radius:26px;
+  background:#f8fbfa;
+  overflow:hidden;
+  box-shadow:16px 22px 35px #0006,0 0 45px #5bd9a326;
+  transform:perspective(900px) rotateY(8deg) rotateZ(-6deg);
+}
+.sharex-app-phone img { display:block; width:100%; height:100%; object-fit:contain; }
+.sharex-app-message { position:relative; color:#effaf4; }
+.sharex-app-message > .mono { display:block; color:#b1d9c5; font-size:10px!important; letter-spacing:.08em; }
+.sharex-app-message strong { display:block; margin:18px 0; font-family:var(--display); font-size:clamp(25px,2.7vw,43px); font-weight:600; line-height:1.08; letter-spacing:-.025em; }
+.sharex-app-message strong > span { color:#8fe3b8; }
+.sharex-app-connection { display:flex; align-items:center; gap:10px; width:100px; margin:20px 0; color:#8fe3b8; }
+.sharex-app-connection > i { width:6px; height:6px; border-radius:50%; background:currentColor; box-shadow:0 0 12px #8fe3b855; }
+.sharex-app-connection > svg { width:60px; height:22px; }
+.poster-sharex .sharex-android-artwork { inset:17% 7% 22%; }
+@media(max-width:760px) {
+  .sharex-android-artwork { inset:13% 6%; gap:6%; grid-template-columns:0.85fr 1.15fr; }
+  .sharex-app-phone { border-width:3px; border-radius:15px; }
+  .sharex-app-message > .mono { font-size:10px!important; letter-spacing:.04em; }
+  .sharex-app-message strong { margin:12px 0; font-size:clamp(21px,6vw,32px); }
+  .sharex-app-connection { display:none; }
+}

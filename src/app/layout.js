@@ -23,7 +23,7 @@ export const metadata = {
     template: "%s — Akansh Sirohi",
   },
   description:
-    "Software engineer, open-source builder, and endlessly curious mind. Explore QuadQR, PromptVault, Android applications, interactive web projects, and notes from the process.",
+    "Software engineer, open-source builder, and endlessly curious mind. Explore QuadQR, PromptVault, ShareX for Android and desktop, interactive web projects, and notes from the process.",
   openGraph: {
     title: "Akansh Sirohi — Building ideas into software.",
     description:

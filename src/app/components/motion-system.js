@@ -28,7 +28,7 @@ export function MotionRibbon() {
   return (
     <div className="motion-ribbon">
       <div className="ribbon-caption mono"><span>DIFFERENT TOOLS. SAME CURIOSITY.</span></div>
-      <ScrollVelocity texts={["Backend systems / Android apps / Open source /"]} velocity={30} skewWithVelocity={2} numCopies={4} scrollerClassName="ribbon-scroller" parallaxClassName="ribbon-parallax" />
+      <ScrollVelocity texts={["Backend systems / Desktop & Android apps / Open source /"]} velocity={30} skewWithVelocity={2} numCopies={4} scrollerClassName="ribbon-scroller" parallaxClassName="ribbon-parallax" />
     </div>
   );
 }

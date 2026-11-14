@@ -64,7 +64,7 @@ export function About({ standalone = false }) {
           </ScrollReveal>
           <p>
             I’m a software engineer working across backend systems, web
-            applications, and Android. My own projects are where curiosity gets
+            applications, and apps for desktop and Android. My own projects are where curiosity gets
             room to run — from simpler file sharing to an entirely different
             kind of matrix code.
           </p>
