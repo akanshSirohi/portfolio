@@ -1,10 +1,7 @@
+import { pageMetadata } from "../seo";
 import { Header, Footer } from "../components/site-chrome";
 import { Work } from "../components/portfolio";
-export const metadata = {
-  title: "Selected work",
-  description:
-    "Explore open-source libraries, Android applications, and professional web projects by Akansh Sirohi, including QuadQR, PromptVault, ShareX, and interactive jewelry try-on.",
-};
+export const metadata = pageMetadata("Software Projects", "Software projects by Akansh Sirohi: QuadQR, PromptVault, ShareX for Android and desktop, open-source libraries, and professional web applications.", "/projects");
 export default function Projects() {
   return (
     <>

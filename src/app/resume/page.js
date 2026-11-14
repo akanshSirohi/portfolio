@@ -1,12 +1,9 @@
+import { pageMetadata } from "../seo";
 import { Header, Footer } from "../components/site-chrome";
 import { Arrow } from "../components/icons";
 import Image from "next/image";
 
-export const metadata = {
-  title: "Résumé",
-  description:
-    "View or download Akansh Sirohi's résumé: backend engineering, Android applications, and interactive web development.",
-};
+export const metadata = pageMetadata("Software Engineer Résumé", "View or download Akansh Sirohi's software engineer résumé covering backend engineering, Android applications, and interactive web development.", "/resume");
 
 export default function ResumePage() {
   return (

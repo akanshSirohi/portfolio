@@ -1,5 +1,6 @@
+import { pageMetadata } from "../seo";
 import { Header, Footer } from "../components/site-chrome";
-export const metadata = { title: "Get in touch" };
+export const metadata = pageMetadata("Contact", "Connect with Akansh Sirohi, a software engineer in India, on LinkedIn, GitHub, or X to discuss software projects and opportunities.", "/contact");
 export default function ContactPage() {
   return (
     <>

@@ -31,7 +31,7 @@ export function ImpactHero() {
       <div className="impact-composition">
         <div className="impact-identity">
           <div className="impact-name">
-            <h1 className="sr-only" id="hero-title">Akansh Sirohi.</h1>
+            <h1 className="sr-only" id="hero-title">Akansh Sirohi — Software Engineer</h1>
             {enhanced ? <div className="tech-name-stage" aria-hidden="true">
               <TechText text="Akansh" className="hero-tech-text" fontSize={230} fontWeight={600} letterSpacing={-0.025} color="#f1ecfc" accentColor="#c8a5ff" align="left" reach={180} dashLength={5} dashGap={3} strokeWidth={1.4} labels draggable={false} selection sweep speed={1.5} intro="assemble" introDuration={1.6} />
               <TechText text="Sirohi." className="hero-tech-text" fontSize={230} fontWeight={600} letterSpacing={-0.025} color="#bda1ff" accentColor="#e3d1ff" align="left" reach={180} dashLength={5} dashGap={3} strokeWidth={1.4} labels draggable={false} selection sweep speed={1.5} intro="assemble" introDuration={2} />

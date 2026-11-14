@@ -4,6 +4,7 @@ import { projects } from "../../data/projects";
 import { Header, Footer } from "../../components/site-chrome";
 import { ProjectVisual } from "../../components/project-visual";
 import { Arrow } from "../../components/icons";
+import { pageMetadata, StructuredData, siteUrl } from "../../seo";
 
 export const dynamicParams = false;
 export function generateStaticParams() {
@@ -13,14 +14,7 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const project = projects.find((item) => item.slug === slug);
   if (!project) return { title: "Project not found" };
-  return {
-    title: project.title,
-    description: project.description,
-    openGraph: {
-      title: `${project.title} — Akansh Sirohi`,
-      description: project.description,
-    },
-  };
+  return pageMetadata(project.title, project.description, `/projects/${project.slug}`);
 }
 
 export default async function ProjectPage({ params }) {
@@ -30,6 +24,14 @@ export default async function ProjectPage({ params }) {
   const next = projects[(projects.indexOf(project) + 1) % projects.length];
   return (
     <>
+      <StructuredData data={{
+        "@context": "https://schema.org", "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
+          { "@type": "ListItem", position: 2, name: "Projects", item: `${siteUrl}/projects` },
+          { "@type": "ListItem", position: 3, name: project.title, item: `${siteUrl}/projects/${project.slug}` },
+        ],
+      }} />
       <Header />
       <main id="main" className="project-detail">
         <Link href="/#work" className="page-back mono">

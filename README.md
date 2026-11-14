@@ -102,3 +102,11 @@ Press Ctrl/⌘ K or `/`, or use the header button, to search projects, technolog
 Reduced motion retains static name typography, static artwork, and readable content. Project information and links remain available outside hover effects. GSAP contexts, observers, listeners, animation frames, and timers are cleaned up on unmount or filtering.
 
 Content is included in exported HTML and remains readable without JavaScript. Navigation, filters, and post controls support keyboard interaction, visible focus, and accessible labels. Cal Sans supplies display typography. Manrope from Google Fonts supplies body text and controls, hosted locally as a 24KB variable WOFF2. Its SIL Open Font License is retained in `public/licenses/manrope.txt`. Static sitemap, robots metadata, and project metadata are generated at build time.
+
+### Search engine indexing
+
+`src/app/seo.js` centralizes the production origin, per-page canonical URLs, descriptions, social previews, and homepage Person, WebSite, and ProfilePage structured data. Project detail pages include breadcrumb structured data. The sitemap includes all public pages and project routes without invented modification dates. `public/CNAME` preserves the custom domain and `.nojekyll` allows GitHub Pages to serve Next.js assets.
+
+After deploying, verify `https://akanshsirohi.dev/` in [Google Search Console](https://search.google.com/search-console), preferably as a domain property using the DNS record Google provides. Alternatively, use URL-prefix verification with an HTML tag: store only the tag's `content` value in the repository Actions secret `GOOGLE_SITE_VERIFICATION`, then redeploy. The workflow passes this optional value to Next.js metadata at build time.
+
+Submit `https://akanshsirohi.dev/sitemap.xml` in Search Console and request indexing for the homepage using URL Inspection. Check the live sitemap, robots.txt, canonical URLs, and social image after deployment. Indexing and rankings are controlled by search engines and are not guaranteed by metadata. Keep GitHub and LinkedIn profiles linked to this domain to make the professional identity consistent.

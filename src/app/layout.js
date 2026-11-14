@@ -2,6 +2,7 @@ import "./globals.css";
 import "./portfolio-refresh.css";
 import localFont from "next/font/local";
 import { InteractiveLayer } from "./components/interactive-layer";
+import { siteUrl, siteTitle, siteDescription, socialImage } from "./seo";
 
 const display = localFont({
   src: "../../public/fonts/CalSans-SemiBold.ttf",
@@ -17,29 +18,28 @@ const body = localFont({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://akanshsirohi.dev"),
+  metadataBase: new URL(siteUrl),
   title: {
-    default: "Akansh Sirohi — Software engineer & curious builder",
+    default: siteTitle,
     template: "%s — Akansh Sirohi",
   },
-  description:
-    "Software engineer, open-source builder, and endlessly curious mind. Explore QuadQR, PromptVault, ShareX for Android and desktop, interactive web projects, and notes from the process.",
+  description: siteDescription,
+  authors: [{ name: "Akansh Sirohi", url: siteUrl }],
+  creator: "Akansh Sirohi",
+  category: "technology",
+  ...(process.env.GOOGLE_SITE_VERIFICATION && {
+    verification: { google: process.env.GOOGLE_SITE_VERIFICATION },
+  }),
   openGraph: {
-    title: "Akansh Sirohi — Building ideas into software.",
-    description:
-      "Independent experiments, useful applications, and notes from the process.",
+    title: siteTitle,
+    description: siteDescription,
+    siteName: "Akansh Sirohi",
+    locale: "en_IN",
     type: "website",
-    images: [
-      {
-        url: "/opengraph-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Akansh Sirohi — Building ideas into software.",
-      },
-    ],
+    images: [socialImage],
   },
-  twitter: { card: "summary_large_image" },
-  robots: { index: true, follow: true },
+  twitter: { card: "summary_large_image", creator: "@akansh__sirohi", title: siteTitle, description: siteDescription, images: [socialImage] },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
 };
 

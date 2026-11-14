@@ -1,4 +1,5 @@
 import { projects } from "./data/projects";
+import { siteUrl } from "./seo";
 export const dynamic = "force-static";
 export default function sitemap() {
   return [
@@ -11,8 +12,6 @@ export default function sitemap() {
     "/resume",
     ...projects.map((project) => `/projects/${project.slug}`),
   ].map((path) => ({
-    url: `https://akanshsirohi.dev${path}`,
-    changeFrequency: "monthly",
-    priority: path === "" ? 1 : 0.7,
+    url: `${siteUrl}${path || "/"}`,
   }));
 }
