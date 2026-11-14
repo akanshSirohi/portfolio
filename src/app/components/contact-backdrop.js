@@ -8,15 +8,16 @@ const SoftAurora = dynamic(() => import("./react-bits/SoftAurora"), { ssr: false
 const LightRays = dynamic(() => import("./react-bits/LightRays"), { ssr: false });
 const Lightfall = dynamic(() => import("./react-bits/Lightfall"), { ssr: false });
 const GradientASCII = dynamic(() => import("./react-bits/GradientASCII"), { ssr: false });
+const LetterGlitch = dynamic(() => import("./react-bits/LetterGlitch"), { ssr: false });
 
 export function ContactBackdrop() {
   const root = useRef(null);
   const [enabled, setEnabled] = useState(false);
   const [near, setNear] = useState(false);
-  const [variant, setVariant] = useState("gradient-ascii");
+  const [variant, setVariant] = useState("letter-glitch");
   useEffect(() => {
     const preview = new URLSearchParams(window.location.search).get("contactBackground");
-    if (["aurora", "soft-aurora", "light-rays", "lightfall", "gradient-ascii"].includes(preview)) setVariant(preview);
+    if (["aurora", "soft-aurora", "light-rays", "lightfall", "gradient-ascii", "letter-glitch"].includes(preview)) setVariant(preview);
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
     const sync = () => setEnabled(!media.matches);
     sync();
@@ -34,7 +35,14 @@ export function ContactBackdrop() {
   }, []);
   return (
     <div ref={root} className={`contact-backdrop contact-backdrop--${variant}`} aria-hidden="true">
-      {near && enabled && (variant === "gradient-ascii" ? <GradientASCII
+      {near && enabled && (variant === "letter-glitch" ? <LetterGlitch
+        glitchColors={["#9970d8", "#c9a6ff", "#eadcff"]}
+        baseColor="#bda1ff" backgroundColor="#11091e"
+        fontSize={14} spacing={0.65} density={0.88}
+        baseOpacity={0.22} glitchAmount={0.45} speed={0.75}
+        flow={0.65} edgeFade={0.08} centerFade={0.45}
+        cursorRadius={160} clickEffect="tear" dpr={1.5} intro={false}
+      /> : variant === "gradient-ascii" ? <GradientASCII
         colors={["#321356", "#824fd5", "#d1a8ff", "#f0d5ff"]}
         shape="horizon" characters=" .:+xX01#@" cellSize={14}
         density={0.85} glyphOpacity={0.9} gradientOpacity={0.55}
